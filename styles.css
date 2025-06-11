@@ -1,11 +1,123 @@
 body{
     margin: 0;
-    font-family: ;
+    font-family:'Press Start 2P', monospace;
+    background-color:#003366	;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 header {
-  border: 2px solid black;
-  background-color: white;
+  background-color: #003366; 
+  border: 2px solid white;
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+.header-wrapped {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.navbar {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white  ;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar a:hover {
+  color: none;
+}
+.nav-retro {
+  background-color: #003366;
+  padding: 0.5rem 1rem;
+}
+
+.nav-retro .nav-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
+}
+
+.nav-retro .nav-link:hover {
+  color: white;
+}
+
+.dropdown-menu{
+  background-color: #003366;
+  color: white;
+  border: black;
+}
+.category-title{
+  font-size: 13px;
+}
+.sidebar {
+  width: 300px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.category-box {
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.category-box .category-title {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+
+.top-juegos-populares .category-title {
+  background-color: #a52a2a; /* marrón */
+}
+
+.top-consolas-compradas .category-title {
+  background-color: #20b2aa; /* azul verdoso */
+}
+
+.category-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-box li {
+  font-size: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.category-box a {
+  text-decoration: none;
+  color: #0088cc;
+}
+
+.category-box a:hover {
+  color: red;
+}
+
+.category-box span {
+  display: block;
+  font-size: 0.5rem;
+  color: gray;
 }

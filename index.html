@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de juegos retros</title>
+    <title>Galería de Consolas y Juegos retros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -11,21 +11,110 @@
 
 </head>
 <body>
-    <header>
-        <div class="header-wrapped">
-            <div class> 
-                <a href="#top">
-                    <img src="https://github.com/JohanParadaC/Galeria-Juegos-Retro/blob/main/images/logoRetro.jpg?raw=true" alt="Control retro" width="300">
+    <header class="bg-blue-custom">
+    <div class="container d-flex justify-content-between align-items-center py-2">
+      <!-- Logo -->
+      <a href="#top">
+        <img src="images/LogoRetro.png" alt="Control retro" width="115" height="115" />
+      </a>
 
+      <!-- Menú de navegación -->
+        <nav class="navbar navbar-expand-lg nav-retro">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+
+              <!-- Consolas -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="consolasDropdown" role="button" data-bs-toggle="dropdown">
+                  Consolas
                 </a>
-            </div>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">PlayStation</a></li>
+                  <li><a class="dropdown-item" href="#">Atari</a></li>
+                  <li><a class="dropdown-item" href="#">Nintendo</a></li>
+                  <li><a class="dropdown-item" href="#">Xbox</a></li>
+                  <li><a class="dropdown-item" href="#">Sega</a></li>
+                </ul>
+              </li>
 
+              <!-- Juegos -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="juegosDropdown" role="button" data-bs-toggle="dropdown">
+                  Juegos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Acción</a></li>
+                  <li><a class="dropdown-item" href="#">Aventura</a></li>
+                  <li><a class="dropdown-item" href="#">RPG</a></li>
+                </ul>
+              </li>
+
+              <!-- Historia de los juegos -->
+              <li class="nav-item">
+                <a class="nav-link" href="#historia">Historia de los juegos</a>
+              </li>
+
+              <!-- Contactos -->
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contactos</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </header>
-    
+        <div class="top-search">
+            <form id="header-search" class="search-form" action="list">
+                <input type="text" class="input-block-level" name="search" value placeholder="Buscar">
+                <button type="submit" class="search-submit" title="Search">
+                    <i class="fa fa-search">
 
+                    </i>
+                </button>
 
+            </form>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="sidebar">
+
+         <!-- Top Consolas-Compradas -->
+     <div class="category-box top-consolas-compradas">
+           <div class="category-title">Top Consolas Compradas</div>
+            <ul>
+             <li><a href="#">SILENT HILL 3</a><br><span>PLAYSTATION 2</span></li>
+             <li><a href="#">NEED FOR SPEED UNDERGROUND</a><br><span>PLAYSTATION 2</span></li>
+             <li><a href="#">GRAN TURISMO 4</a><br><span>PLAYSTATION 2</span></li>
+             <li><a href="#">GOD OF WAR 2</a><br><span>PLAYSTATION 2</span></li>
+             <li><a href="#">FINAL FANTASY X</a><br><span>PLAYSTATION 2</span></li>
+             <li><a href="#">Resident Evil 3</a><br><span>PLAYSTATION</span></li>
+
+             </ul>
+     </div>
+  
+         <!-- Top Juegos-Populares -->
+
+     <div class="category-box top-juegos-populares">
+        <div class="category-title"> Top Juegos Populares</div>
+         <ul>
+            <li><a href="#">Super Mario 64</a> <br><span>NINTENDO 64</span></li>
+            <li><a href="#">The Legend of Zelda: Ocarina of Time</a> <br><span>NINTENDO 64</span></li>
+            <li><a href="#">Super Mario World</a> <br><span>SUPER NINTENDO</span></li>
+            <li><a href="#">God Of War</a> <br><span>PLAYSTATION 2</span></li>
+            <li><a href="#">NEED FOR SPEED UNDERGROUND</a> <br><span>PLAYSTATION 2</span></li>
+            <li><a href="#">Pokemon Rojo-Fuego</a> <br><span>NINTENDO GAMEBOY ADVANCE</span></li>
+            <li><a href="#">Halo CE</a> <br><span>XBOX</span></li>
+            <li><a href="#">Resident Evil 3</a> <br><span>PLAYSTATION</span></li>
+            <li><a href="#">Silent Hill 3</a> <br><span>PLAYSTATION 2</span></li>
+            <li><a href="#">Donkey Kong Country</a> <br><span>SUPER NINTENDO</span></li>
+            <li><a href="#">Super Metroid</a> <br><span>SUPER NINTENDO</span></li>
+        </ul>
+       </div>
+    </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
