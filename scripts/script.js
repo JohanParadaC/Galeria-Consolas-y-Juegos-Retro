@@ -80,7 +80,7 @@ const filtrosBySection = {
   `
 };
 
-// 2. Inyectar filtros cuando cambie de ruta
+// 2. Inyecta filtros cuando cambie de ruta
 function renderFilters(section) {
   if (!filtrosBySection[section]) {
     filtersContainer.classList.add('d-none');
@@ -170,7 +170,6 @@ document.getElementById('header-search')
     filterCards();
   });
 
-  // Cuando el DOM esté listo…
 document.addEventListener('DOMContentLoaded', () => {
   // Inicializa el Modal de Bootstrap
   const bsModal = new bootstrap.Modal(document.getElementById('detailModal'));

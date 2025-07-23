@@ -268,7 +268,9 @@ footer {
   }
 }
 
-/* 12) SECCIÓN “SOBRE NOSOTROS” – alinear el texto junto a la imagen */
+/* 12) SECCIÓN “SOBRE NOSOTROS”
+
+– alinear el texto junto a la imagen */
 #contacto .about-container {
 
   font-family: 'Orbitron', sans-serif !important;
@@ -294,7 +296,7 @@ footer {
   justify-content: flex-start !important;
   text-align: left !important; 
 }
-/* Asegurar que la lista herede esos mismos estilos */
+/* Asegura que la lista herede esos mismos estilos */
 #sobre-nosotros .about-text ul {
   list-style: disc inside;
   margin: 1rem 0;
