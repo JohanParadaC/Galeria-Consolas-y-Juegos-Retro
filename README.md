@@ -6,7 +6,7 @@ Una aplicación web interactiva que muestra una colección de Dispositivos y Jue
 
 ## 🔗 Enlace en vivo
 
-Visita la demo:  
+Visita la demo:  https://johanparadac.github.io/Galeria-Consolas-y-Juegos-Retro/
 
 ---
 
@@ -92,9 +92,7 @@ Haz tus cambios y commits.
 Abre un Pull Request con una descripción clara.
 
 👨‍💻 Autor
-[Johan David Parada Camargo] – Desarrollador/a Web
-
-Puedes añadir más colaboradores si es un proyecto grupal.
+[Johan David Parada Camargo] – Desarrollador Web
 
 📄 Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
