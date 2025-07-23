@@ -1,13 +1,36 @@
-body {
+/*----------------------------------
+  1) VARIABLES GLOBALES
+----------------------------------*/
+:root {
+  --header-height: 64px; /* Ajusta al alto real de tu header */
+}
+
+/*----------------------------------
+  2) RESET Y ESTILOS BASE
+----------------------------------*/
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+body {
   font-family: 'Press Start 2P', monospace;
   background-color: #003366;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  color: #fff;
+}
+img {
+  border-radius: 5px;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* HEADER Y NAVBAR */
+/*----------------------------------
+  3) HEADER & NAVBAR
+----------------------------------*/
 header {
   background-color: #003366;
   border: 2px solid white;
@@ -15,223 +38,307 @@ header {
   top: 0;
   z-index: 1000;
 }
-
 .header-wrapped {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
 }
-
 .navbar {
-  background-color: transparent;
+  background: transparent;
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 20px;
 }
-
 .navbar a {
   color: white;
   font-weight: bold;
   text-decoration: none;
   font-size: 16px;
 }
-
-.navbar a:hover {
-  color: none;
-}
-
 .nav-retro {
   background-color: #003366;
   padding: 0.5rem 1rem;
 }
-
 .nav-retro .nav-link {
   color: white;
-  font-weight: bold;
-  text-decoration: none;
   font-size: 14px;
   font-family: 'Press Start 2P', monospace;
   text-transform: uppercase;
 }
-
-.nav-retro .nav-link:hover {
-  color: white;
-}
-
 .dropdown-menu {
   background-color: #003366;
   color: white;
-  border: black;
+  border: none;
 }
 
-/* SIDEBAR */
+/*----------------------------------
+  4) SIDEBAR
+----------------------------------*/
 .sidebar {
   width: 300px;
   padding: 1rem;
   font-family: 'Press Start 2P', monospace;
   position: fixed;
-  top: 120px; /* Ajusta si el navbar es más alto o más bajo */
+  top: 175px; 
   left: 0;
   bottom: 0;
   overflow-y: auto;
-  z-index: 999;
   background-color: #003366;
   border-right: 2px solid white;
+  z-index: 999;
+}
+#filters-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.1rem 2rem; 
 }
 
-/* CONTENIDO PRINCIPAL */
-#main-content {
-  margin-left: 300px; /* igual al ancho del sidebar */
+/* Selects transparent con borde blanco y texto blanco */
+#filters-container select {
+    text-decoration: none;
+    color: #fff !important;
+  /* fondo transparente */
+  background-color: transparent !important;
+  /* más espacio a la derecha para que la flecha no quede pegada */
+  padding: 0.5rem 1.75rem 0.5rem 1rem !important;
+  /* reposicionar la flecha */
+  background-position: right 0.75rem center !important;
+  /* ocultar apariencia nativa */
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+/* Contador de resultados en blanco */
+#filters-container select option {
+  background-color: #003366 !important;
+  color: #fff !important;
+}
+
+/* Botón Limpiar verde acorde al tema */
+#filters-container .btn-clear {
+  background-color: #20b2aa;
+  border: none;
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/*----------------------------------
+  5) CONTENIDO PRINCIPAL
+----------------------------------*/
+#main-content,
+#contenedor-vista {
+  margin-left: 300px;
   padding: 1.5rem;
 }
 
-/* CAJAS DE CATEGORÍAS */
+/*----------------------------------
+  6) CAJAS DE CATEGORÍAS
+----------------------------------*/
 .category-box {
   background-color: white;
   border-radius: 5px;
   padding: 0.5rem;
   margin-bottom: 1rem;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  color: black;
 }
-
 .category-box .category-title {
   padding: 0.5rem;
   font-size: 0.75rem;
   text-align: center;
-  color: black;
   font-weight: bold;
   border-radius: 5px 5px 0 0;
 }
-
-.top-juegos-populares .category-title {
-  background-color: #20b2aa;
-}
-
+.top-juegos-populares .category-title,
 .top-consolas-compradas .category-title {
   background-color: #20b2aa;
 }
-
 .category-box ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
-
 .category-box li {
   font-size: 0.6rem;
   margin-bottom: 0.8rem;
 }
-
 .category-box a {
-  text-decoration: none;
   color: #0088cc;
+  text-decoration: none;
 }
-
 .category-box a:hover {
   color: red;
 }
-
 .category-box span {
   display: block;
   font-size: 0.5rem;
   color: gray;
 }
 
-/* FORMULARIO DE BÚSQUEDA */
+/*----------------------------------
+  7) FORMULARIO DE BÚSQUEDA
+----------------------------------*/
 .search-form {
   display: flex;
   gap: 0.5rem;
 }
-
 .search-form input {
   font-family: 'Press Start 2P', monospace;
   padding: 0.5rem;
   font-size: 10px;
   border: 2px solid white;
-  background-color: #ffffff;
+  background-color: #fff;
   color: black;
 }
-
+.search-form input::placeholder {
+  color: gray;
+}
 .search-submit {
   background-color: #20b2aa;
   border: none;
   padding: 0.5rem;
   cursor: pointer;
 }
+.search-submit i {
+  color: #fff;
+}
 
-/* RESPONSIVE */
+/*----------------------------------
+  8) TIPOGRAFÍA
+----------------------------------*/
+h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/*----------------------------------
+  9) IMÁGENES ESPECÍFICAS
+----------------------------------*/
+.img-consola {
+  margin: 0 auto;
+  max-width: 200px;
+  object-fit: contain;
+}
+.profile-pic {
+  max-width: 200px;
+  cursor: pointer;
+  /* el margin y display los gestiona el flex más abajo */
+}
+
+/*----------------------------------
+ 10) FOOTER & MODAL
+----------------------------------*/
+footer {
+  text-align: center;
+  padding: 0.5rem 0;
+  background-color: #f8f8f8;
+  color: #333;
+}
+.modal-dialog.modal-md {
+  max-width: 500px;
+}
+
+/*----------------------------------
+ 11) RESPONSIVE
+----------------------------------*/
 @media screen and (max-width: 992px) {
   .sidebar {
     position: static;
     width: 100%;
-    height: auto;
     border-right: none;
     top: 0;
   }
-
-  #main-content {
+  #main-content,
+  #contenedor-vista {
     margin-left: 0;
   }
-
   .navbar-nav {
     flex-direction: column;
-    text-align: left;
   }
-
-  .nav-retro .nav-link {
-    padding-left: 1rem;
-  }
-
-  .top-search {
-    margin-top: 1rem;
-    width: 100%;
-  }
-
   .search-form input {
     width: 100%;
   }
 }
 
-h2, h3 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.3rem;
-  background-position: center;
+/* 12) SECCIÓN “SOBRE NOSOTROS” – alinear el texto junto a la imagen */
+#contacto .about-container {
 
-  color: white;
-}
-
-p {
-  font-size: 0.85rem;
-  font-family: 'Orbitron', sans-serif;
-}
-img {
-  display: block;
-  margin: 0 auto;
-  border-radius: 5px;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 1.5rem !important;
+  margin-top: 1.5rem;
 }
 
-.img-consola {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 200px; 
-  height: auto;
-  border-radius: 5px;
-  object-fit: contain;
-}
-.ventas-centrado {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1.9rem;
-  font-family: 'Orbitron', sans-serif;
-  color: black;
-  width: 100%;
+#contacto .profile-pic {
+  flex: 0 0 200px !important;
+  max-width: 200px !important;
+  margin: 0 !important;
 }
 
-.card-title {
-  font-size: 1rem;
-  font-family: 'Press Start 2P', monospace;
-  margin-bottom: 1rem;
+#contacto .about-text {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  text-align: left !important; 
+}
+/* Asegurar que la lista herede esos mismos estilos */
+#sobre-nosotros .about-text ul {
+  list-style: disc inside;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+
+#sobre-nosotros .about-text ul li {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  margin-bottom: 0.5rem;
+}
+
+#sobre-nosotros .about-text h2,
+#sobre-nosotros .about-text p {
+  color: #fff !important;
+  margin: 0 0 1rem !important;
+}
+/*----------------------------------
+ 13) FORMULARIO DE CONTACTO
+----------------------------------*/
+#contactForm {
+  margin: 2rem auto 0;
+  max-width: 600px;
+}
+#contactForm label,
+#contactForm .form-label {
+  color: #fff !important;
+}
+#contactForm .form-control {
+  background-color: rgba(255,255,255,0.1) !important;
+  border: 1px solid #fff !important;
+  color: #fff !important;
+}
+#contactForm .form-control::placeholder {
+  color: #eee !important;
+}
+#contactForm .invalid-feedback {
+  color: #fdd !important;
+}
+#contactForm .btn-primary {
+  background-color: #20b2aa !important;
+  border-color: #20b2aa !important;
+}
+#contactForm .btn-primary:hover {
+  background-color: #1a9181 !important;
+  border-color: #1a9181 !important;
 }

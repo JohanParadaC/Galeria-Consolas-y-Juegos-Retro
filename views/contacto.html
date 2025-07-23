@@ -1,0 +1,68 @@
+<section id="contacto">
+  <!-- Cabecera sticky -->
+  <div class="section-header">
+    <h1>Sobre el proyecto</h1>
+    <nav>
+      <a href="/" data-link>Inicio</a>
+    </nav>
+  </div>
+
+  <!-- Contenedor flex: imagen + texto -->
+  <div class="about-container">
+    <!-- Imagen representativa (click → modal) -->
+    <img
+      src="/assets/Icons/LogoRetro.png"
+      alt="Logo del proyecto"
+      class="profile-pic"
+      data-bs-toggle="modal"
+      data-bs-target="#profileModal"
+    >
+
+    <!-- Texto descriptivo -->
+    <div class="about-text">
+      <h2>Acerca del proyecto</h2>
+      <p>
+        <strong>GalRetro</strong> es una aplicación web desarrollada como proyecto del bootcamp de desarrollo web de BIT, donde el principal objetivo mio es mostrar mi pasión por los juegos y las consolas retro. El objetivo principal tecnico de este proyecto fue poner en práctica las siguientes habilidades:
+      </p>
+      <ul>
+        <li>Implementar lógica en <strong>JavaScript</strong> para interactividad y manejo de datos.</li>
+        <li>Aplicar <strong>HTML</strong>, <strong>CSS</strong> y <strong>Bootstrap</strong> para un diseño responsivo y estructurado.</li>
+        <li>Desarrollar funcionalidades dinámicas y validar formularios.</li>
+      </ul>
+      <p>
+        El código fuente está disponible en 
+        <a href="https://github.com/tu-usuario/galretro" target="_blank" rel="noopener">GitHub</a> 
+        y el sitio se publica con GitHub Pages.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- --- Modal para ampliar la imagen --- -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <img src="assets/team/yo.jpg" class="img-fluid" alt="Logo ampliado">
+    </div>
+  </div>
+</div>
+
+<!-- Formulario de contacto -->
+<form id="contactForm" novalidate class="mt-4">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" required>
+    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Correo electrónico</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+    <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+  </div>
+  <div class="mb-3">
+    <label for="mensaje" class="form-label">Mensaje</label>
+    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+    <div class="invalid-feedback">El mensaje no puede estar vacío.</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
