@@ -16,6 +16,9 @@
 body {
   font-family: 'Press Start 2P', monospace;
   background-color: #003366;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;
 }
 img {
@@ -35,18 +38,37 @@ header {
   top: 0;
   z-index: 1000;
 }
-/* Aseguramos que los links del navbar sean blancos */
+.header-wrapped {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.navbar {
+  background: transparent;
+  display: flex;
+  gap: 20px;
+}
+.navbar a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+}
+.nav-retro {
+  background-color: #003366;
+  padding: 0.5rem 1rem;
+}
 .nav-retro .nav-link {
-  color: #fff !important;  /* ← Añadido: texto blanco en desktop */
+  color: white;
+  font-size: 14px;
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
 }
-
-/* Toggler */
-.navbar-toggler {
-  background-color: #20b2aa !important;
-  border: none !important;
-}
-.navbar-toggler-icon {
-  filter: invert(1);
+.dropdown-menu {
+  background-color: #003366;
+  color: white;
+  border: none;
 }
 
 /* Menú colapsado en móvil */
@@ -206,6 +228,7 @@ p {
 .profile-pic {
   max-width: 200px;
   cursor: pointer;
+  /* el margin y display los gestiona el flex más abajo */
 }
 
 /*----------------------------------
@@ -433,17 +456,78 @@ details.filters-panel > #filters-container {
   }
 }
 
-/* 2) Forzar estilos “retro” en el dropdown (desktop y móvil) */
-.nav-retro .dropdown-menu {
-  background-color: #003366 !important;
-  border: none !important;
+
+/* 12) SECCIÓN “SOBRE NOSOTROS” – alinear el texto junto a la imagen */
+#contacto .about-container {
+
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 1.5rem !important;
+  margin-top: 1.5rem;
 }
 
-.nav-retro .dropdown-item {
+#contacto .profile-pic {
+  flex: 0 0 200px !important;
+  max-width: 200px !important;
+  margin: 0 !important;
+}
+
+#contacto .about-text {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  text-align: left !important; 
+}
+/* Asegurar que la lista herede esos mismos estilos */
+#sobre-nosotros .about-text ul {
+  list-style: disc inside;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+
+#sobre-nosotros .about-text ul li {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  margin-bottom: 0.5rem;
+}
+
+#sobre-nosotros .about-text h2,
+#sobre-nosotros .about-text p {
+  color: #fff !important;
+  margin: 0 0 1rem !important;
+}
+/*----------------------------------
+ 13) FORMULARIO DE CONTACTO
+----------------------------------*/
+#contactForm {
+  margin: 2rem auto 0;
+  max-width: 600px;
+}
+#contactForm label,
+#contactForm .form-label {
   color: #fff !important;
 }
-
-.nav-retro .dropdown-item:hover,
-.nav-retro .dropdown-item:focus {
+#contactForm .form-control {
+  background-color: rgba(255,255,255,0.1) !important;
+  border: 1px solid #fff !important;
+  color: #fff !important;
+}
+#contactForm .form-control::placeholder {
+  color: #eee !important;
+}
+#contactForm .invalid-feedback {
+  color: #fdd !important;
+}
+#contactForm .btn-primary {
   background-color: #20b2aa !important;
+  border-color: #20b2aa !important;
+}
+#contactForm .btn-primary:hover {
+  background-color: #1a9181 !important;
+  border-color: #1a9181 !important;
 }
