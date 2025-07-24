@@ -1,41 +1,42 @@
 <section id="contacto">
   <!-- Cabecera sticky -->
   <div class="section-header">
-    <h1>Sobre Mi</h1>
-    <nav>
-      <a href="#/" data-link>Inicio</a>
-    </nav>
+      <h1>Sobre Mi</h1>
+      <nav>
+        <a href="#/" data-link>Inicio</a>
+      </nav>
   </div>
 
   <!-- Contenedor flex: imagen + texto -->
   <div class="about-container">
-    <!-- Imagen representativa (click → modal) -->
-    <img
-      src="assets/team/yo.jpg"
-      alt="Logo del proyecto"
-      class="profile-pic"
-      data-bs-toggle="modal"
-      data-bs-target="#profileModal"
-    >
+        <!-- Imagen representativa (click → modal) -->
+        <img
+          src="assets/team/yo.jpg"
+          alt="Logo del proyecto"
+          class="profile-pic"
+          data-bs-toggle="modal"
+          data-bs-target="#profileModal"
+        >
 
-    <!-- Texto descriptivo -->
-    <div class="about-text">
-      <h2>Acerca de mi</h2>
-      <p>
-         Mi nombre es Johan Parada, estudio ingeniería de sistemas en la universida de Ibagué - Colombia, para esta pagina web fue desarrollada como proyecto del bootcamp de desarrollo web de BIT, donde el principal objetivo mio es mostrar mi pasión por los juegos y las consolas retro. El objetivo principal tecnico de este proyecto fue poner en práctica las siguientes habilidades:
-      </p>
-      <ul>
-        <li>Implementar lógica en <strong>JavaScript</strong> para interactividad y manejo de datos.</li>
-        <li>Aplicar <strong>HTML</strong>, <strong>CSS</strong> y <strong>Bootstrap</strong> para un diseño responsivo y estructurado.</li>
-        <li>Desarrollar funcionalidades dinámicas y validar formularios.</li>
-      </ul>
-      <p>
-        El código fuente está disponible en 
-        <a href="https://github.com/JohanParadaC/Galeria-Consolas-y-Juegos-Retro" target="_blank" rel="noopener">GitHub</a> 
-        y el sitio se publica con GitHub Pages.
-      </p>
-    <!-- Texto de dudas -->
-    <p>Si tienen dudas o comentarios pueden contactarme llenando los campos de abajo y dandole en enviar</p>
+        <!-- Texto descriptivo -->
+      <div class="about-text">
+          <h2>Acerca de mi</h2>
+          <p>
+            Mi nombre es Johan Parada, estudio ingeniería de sistemas en la universida de Ibagué - Colombia, para esta pagina web fue desarrollada como proyecto del bootcamp de desarrollo web de BIT, donde el principal objetivo mio es mostrar mi pasión por los juegos y las consolas retro. El objetivo principal tecnico de este proyecto fue poner en práctica las siguientes habilidades:
+          </p>
+              <ul>
+            <li>Implementar lógica en <strong>JavaScript</strong> para interactividad y manejo de datos.</li>
+            <li>Aplicar <strong>HTML</strong>, <strong>CSS</strong> y <strong>Bootstrap</strong> para un diseño responsivo y estructurado.</li>
+            <li>Desarrollar funcionalidades dinámicas y validar formularios.</li>
+          </ul>
+          <p>
+            El código fuente está disponible en 
+            <a href="https://github.com/JohanParadaC/Galeria-Consolas-y-Juegos-Retro" target="_blank" rel="noopener">GitHub</a> 
+            y el sitio se publica con GitHub Pages.
+          </p>
+        <!-- Texto de dudas -->
+        <p>Si tienen dudas o comentarios pueden contactarme llenando los campos de abajo y dandole en enviar</p>
+      </div>
   </div>
 </section>
 
@@ -49,24 +50,24 @@
 </div>
 
 <!-- Formulario de contacto -->
-<form id="contactForm" novalidate class="mt-4">
-  <div class="mb-3">
-    <label for="nombre" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" required>
-    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
-  </div>
-  <div class="mb-3">
-    <label for="email" class="form-label">Correo electrónico</label>
-    <input type="email" class="form-control" id="email" name="email" required>
-    <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
-  </div>
-  <div class="mb-3">
-    <label for="mensaje" class="form-label">Mensaje</label>
-    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
-    <div class="invalid-feedback">El mensaje no puede estar vacío.</div>
-  </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-<div id="mensajeExito" class="alert alert-success d-none mt-4" role="alert">
-  ¡Gracias por tu mensaje!
-</div>
+    <form id="contactForm" novalidate class="mt-4">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+        <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+        <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+      </div>
+      <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+        <div class="invalid-feedback">El mensaje no puede estar vacío.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    <div id="mensajeExito" class="alert alert-success d-none mt-4" role="alert">
+      ¡Gracias por tu mensaje!
+    </div>

@@ -371,7 +371,7 @@ details.filters-panel > #filters-container {
     filter: invert(1);
   }
   .dropdown-menu {
-    background-color: #fff !important;
+    background-color:#003366!important;
     color: #003366 !important;
     border: none !important;
   }
@@ -488,20 +488,20 @@ details.filters-panel > #filters-container {
   text-align: left !important; 
 }
 /* Asegurar que la lista herede esos mismos estilos */
-#sobre-nosotros .about-text ul {
+#contacto .about-text ul {
   list-style: disc inside;
   margin: 1rem 0;
   padding-left: 1rem;
 }
 
-#sobre-nosotros .about-text ul li {
+#contacto .about-text ul li {
   font-family: inherit !important;
   font-size: inherit !important;
   margin-bottom: 0.5rem;
 }
 
-#sobre-nosotros .about-text h2,
-#sobre-nosotros .about-text p {
+#contacto .about-text h2,
+#contacto .about-text p {
   color: #fff !important;
   margin: 0 0 1rem !important;
 }
@@ -536,10 +536,8 @@ details.filters-panel > #filters-container {
   border-color: #1a9181 !important;
 }
 /* Cuando #sobre‑mi es el target (URL termina en #sobre‑mi), esconde los filtros */
-#sobre-mi:target ~ #filterWrapper,
-#sobre-mi:target ~ details.filters-panel {
-  display: none !important;
-}
+.contact-page #filterWrapper { display: none !important; }
+
 @media screen and (max-width: 991px) {
   /* dropdown del header (clase nav-retro) */
   .nav-retro .dropdown-menu {
