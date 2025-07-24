@@ -37,32 +37,35 @@ function route(hash) {
     vistaContainer.classList.remove('d-none');
     vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
 
-    fetch('views/contacto.html')
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.text();
-      })
-      .then(html => {
-        vistaContainer.innerHTML = html;
+    console.log('Cargando contacto.html desde router');
 
+
+fetch('views/contacto.html')
+  .then(res => {
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.text();
+  })
+  .then(html => {
+    vistaContainer.innerHTML = html;
+
+    // Ejecuta el script solo si la función ya está cargada
+    if (typeof inicializarFormularioContacto === 'function') {
+      inicializarFormularioContacto();
+    } else {
+      const script = document.createElement('script');
+      script.src = 'scripts/script.js';
+      script.onload = () => {
         if (typeof inicializarFormularioContacto === 'function') {
           inicializarFormularioContacto();
-        } else {
-          const script = document.createElement('script');
-          script.src = 'scripts/script.js';
-          script.onload = () => {
-            if (typeof inicializarFormularioContacto === 'function') {
-              inicializarFormularioContacto();
-            }
-          };
-          document.body.appendChild(script);
         }
-      })
-      .catch(err => {
-        console.error('Error cargando views/contacto.html:', err);
-        showError('contacto');
-      });
-    return;
+      };
+      document.body.appendChild(script);
+    }
+  })
+  .catch(err => {
+    console.error('Error cargando views/contacto.html:', err);
+    showError('contacto');
+  });
   }
 
   const partes = path.split('/').filter(Boolean);
