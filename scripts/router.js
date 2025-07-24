@@ -41,7 +41,7 @@ function route(hash) {
     vistaContainer.classList.remove('d-none');
     vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
 
-    fetch('views/contacto.html') // sin slash al inicio
+    fetch('./views/contacto.html') 
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.text();
