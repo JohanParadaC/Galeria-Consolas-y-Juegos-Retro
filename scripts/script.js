@@ -211,33 +211,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Validación de formulario de contacto
-(() => {
-  'use strict';
+// 7. Función para inicializar el formulario dinámico
+function inicializarFormularioContacto() {
   const form = document.getElementById('contactForm');
   const mensajeExito = document.getElementById('mensajeExito');
+  if (!form || !mensajeExito) return;
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Previene envío por defecto
-    form.classList.remove('was-validated'); // Limpia validación anterior
+    event.preventDefault();
+    form.classList.remove('was-validated');
 
     if (!form.checkValidity()) {
       form.classList.add('was-validated');
       return;
     }
 
-    // Obtener los datos del formulario correctamente
     const nombre = form.elements['nombre'].value;
-
-    // Mostrar mensaje de éxito con Bootstrap
     mensajeExito.textContent = `¡Gracias por tu mensaje, ${nombre}!`;
     mensajeExito.classList.remove('d-none');
 
-    // Limpiar el formulario después de 3 segundos
     setTimeout(() => {
       form.reset();
       form.classList.remove('was-validated');
       mensajeExito.classList.add('d-none');
     }, 3000);
   });
-})();
+}
