@@ -433,11 +433,6 @@ details.filters-panel > #filters-container {
   }
 }
 
-header {
-  height: var(--header-height);
-  overflow: hidden;
-}
-
 /* 2) Forzar estilos “retro” en el dropdown (desktop y móvil) */
 .nav-retro .dropdown-menu {
   background-color: #003366 !important;
