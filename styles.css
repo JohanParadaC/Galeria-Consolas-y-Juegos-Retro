@@ -35,21 +35,25 @@ header {
   top: 0;
   z-index: 1000;
 }
+/* Aseguramos que los links del navbar sean blancos */
+.nav-retro .nav-link {
+  color: #fff !important;  /* ← Añadido: texto blanco en desktop */
+}
 
 /* Toggler */
 .navbar-toggler {
-  background-color: #20b2aa !important;  /* ← Cambiado: fondo botón hamburguesa móvil */
-  border: none !important;               /* ← Cambiado: sin borde en móvil */
+  background-color: #20b2aa !important;
+  border: none !important;
 }
 .navbar-toggler-icon {
-  filter: invert(1);                     /* ← Cambiado: icono contrastado */
+  filter: invert(1);
 }
 
 /* Menú colapsado en móvil */
 @media screen and (max-width: 991px) {
   .navbar-collapse {
-    background-color: #003366;           /* ← Añadido: fondo oscuro detrás de los links */
-    padding: 1rem 0;                     /* ← Añadido: espacio vertical */
+    background-color: #003366;           /* ← Cambiado: fondo original */
+    padding: 1rem 0;
   }
   .navbar-nav {
     display: flex;
@@ -57,15 +61,21 @@ header {
   }
   .nav-link,
   .dropdown-item {
-    color: #fff !important;              /* ← Añadido: links blancos en menú móvil */
+    color: #fff !important;              /* ← Añadido: texto blanco */
   }
   .dropdown-menu {
-    background-color: #003366 !important; /* ← Añadido: fondo oscuro en submenús */
+    background-color: #003366 !important;/* ← Cambiado: fondo original */
+    color: #fff !important;              /* ← Cambiado: texto blanco */
+    border: none !important;
   }
   .dropdown-item:hover,
   .dropdown-item:focus {
-    background-color: #20b2aa !important; /* ← Añadido: hover en submenús */
-    color: #fff !important;              /* ← Añadido: texto blanco en hover */
+    background-color: #20b2aa !important;
+    color: #fff !important;
+  }
+  /* Opciones del dropdown deben ser blancas */
+  .dropdown-item {
+    color: #fff !important;              /* ← Añadido */
   }
 }
 
