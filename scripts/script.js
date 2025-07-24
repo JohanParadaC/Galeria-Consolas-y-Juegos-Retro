@@ -211,13 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Validación de formulario de contacto
-(() => {
-  'use strict';
+function inicializarFormularioContacto() {
   const form = document.getElementById('contactForm');
+  if (!form) return;
 
   form.addEventListener('submit', function(event) {
-    // Limpia estados
     form.classList.remove('was-validated');
 
     if (!form.checkValidity()) {
@@ -227,9 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Aquí podrías enviar el formulario via AJAX o mostrar un mensaje de éxito
     event.preventDefault();
     alert('¡Gracias por tu mensaje, ' + form.nombre.value + '!');
     form.reset();
   });
-})();
+}

@@ -41,14 +41,17 @@ function route(hash) {
     vistaContainer.classList.remove('d-none');
     vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
 
-    fetch('./views/contacto.html') 
+    fetch('views/contacto.html') 
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.text();
       })
-      .then(html => {
-        vistaContainer.innerHTML = html;
-      })
+        .then(html => {
+          vistaContainer.innerHTML = html;
+          if (typeof inicializarFormularioContacto === 'function') {
+            inicializarFormularioContacto();
+          }
+        })
       .catch(err => {
         console.error('Error cargando views/contacto.html:', err);
         showError('contacto');
