@@ -256,7 +256,7 @@ footer {
   background-color: #003366;
 }
 .filters-panel > summary {
-  list-style: none;               /* quita marcador nativo */
+  list-style: none;
   padding: 0.75rem 1rem;
   cursor: pointer;
   color: #fff;
@@ -264,7 +264,7 @@ footer {
   position: relative;
 }
 .filters-panel > summary::-webkit-details-marker {
-  display: none;                  /* oculta marcador nativo */
+  display: none;
 }
 .filters-panel > summary .arrow {
   border: solid #fff;
@@ -280,7 +280,7 @@ footer {
   margin-top: -4px;
 }
 .filters-panel[open] > summary .arrow {
-  transform: rotate(-135deg);     /* flecha hacia arriba al abrir */
+  transform: rotate(-135deg);
 }
 .filters-panel > #filters-container {
   display: none;
@@ -291,102 +291,45 @@ footer {
 }
 
 /*----------------------------------
-  11) RESPONSIVE + PANEL PLEGABLE SOLO EN MÓVIL
+  11) RESPONSIVE MÓVIL (≤992px)
 ----------------------------------*/
-
-/* Por defecto (desktop) ocultamos el panel plegable */
+/* Ocultar panel en desktop */
 .filters-panel {
   display: none;
 }
 
-/* En pantallas <= 992px: mostramos el panel y el resto de ajustes móviles */
 @media screen and (max-width: 992px) {
-
-  /* Mostrar el panel plegable aquí */
+  /* Mostrar panel plegable */
   .filters-panel {
     display: block;
-    margin: 1rem 0;
-    border: 1px solid #20b2aa;
-    border-radius: 4px;
-    overflow: hidden;
-    background-color: #003366;
   }
-
-  .filters-panel > summary {
-    list-style: none;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    color: #fff;
-    font-family: 'Press Start 2P', monospace;
-    position: relative;
-  }
-  .filters-panel > summary::-webkit-details-marker {
-    display: none;
-  }
-  .filters-panel > summary .arrow {
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 5px;
-    transform: rotate(45deg);
-    transition: transform 0.2s ease;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform-origin: center;
-    margin-top: -4px;
-  }
-  .filters-panel[open] > summary .arrow {
-    transform: rotate(-135deg);
-  }
+  .filters-panel > summary { /* ya estaba definido arriba */ }
   .filters-panel > #filters-container {
     display: none;
-    padding: 1rem;
   }
   .filters-panel[open] > #filters-container {
     display: block;
   }
 
-  /* Ocultar sidebar en móvil */
-  .sidebar {
-    display: none;
-  }
+  /* Sidebar y layout móviles */
+  .sidebar { display: none; }
+  #main-content, #contenedor-vista { margin-left: 0; padding: 1rem; }
 
-  /* Main y vistas ancho completo */
-  #main-content,
-  #contenedor-vista {
-    margin-left: 0;
-    padding: 1rem;
-  }
-
-  /* Navbar vertical */
+  /* Navbar como lista vertical */
   .nav-retro { background-color: #003366; }
   .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    background-color: #003366;
-    width: 100%;
+    display: flex; flex-direction: column;
+    background-color: #003366; width: 100%;
   }
   .nav-retro .nav-link {
-    display: block;
-    width: 100%;
-    padding: 1rem;
+    display: block; width: 100%; padding: 1rem;
     border-bottom: 1px solid #20b2aa;
-    color: #fff !important;
-    font-size: 0.85rem;
+    color: #fff !important; font-size: 0.85rem;
   }
-  .nav-retro .nav-link:last-child {
-    border-bottom: none;
-  }
-  .navbar-toggler {
-    background-color: #20b2aa !important;
-    border: none !important;
-  }
-  .navbar-toggler-icon {
-    filter: invert(1);
-  }
+  .navbar-toggler { background-color: #20b2aa !important; border: none !important; }
+  .navbar-toggler-icon { filter: invert(1); }
 
-  /* Dropdown legible */
+  /* Dropdown limpio */
   .dropdown-menu {
     background-color: #fff !important;
     color: #003366 !important;
@@ -398,71 +341,58 @@ footer {
     font-family: 'Press Start 2P', monospace;
     font-size: 0.7rem;
   }
-  .dropdown-item:hover,
-  .dropdown-item:focus {
+  .dropdown-item:hover, .dropdown-item:focus {
     background-color: #20b2aa !important;
     color: #fff !important;
   }
   .dropdown-menu.show {
-    position: absolute;
-    z-index: 2000;
-    top: 100%;
-    left: 0;
-    width: 100%;
+    position: absolute; z-index: 2000;
+    top: 100%; left: 0; width: 100%;
   }
 
-  /* Filtros compactos dentro del panel */
+  /* Controles de filtro compactos */
   #filters-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
   }
   #filters-container label {
-    font-size: 0.75rem;
-    margin-right: 0.5rem;
+    font-size: 0.75rem; margin-right: 0.5rem;
   }
   #filters-container input[type="checkbox"] {
-    width: 1rem;
-    height: 1rem;
+    width: 1rem; height: 1rem;
   }
   #filters-container select {
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem !important;
     background-position: right 0.5rem center !important;
   }
-  #results-count {
-    font-size: 0.75rem;
-  }
+  #results-count { font-size: 0.75rem; }
   #clear-filters {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem; padding: 0.25rem 0.5rem;
   }
 }
 
 /*----------------------------------
-  12) DESKTOP: mostrar filtros siempre, pero compactos
+  12) DESKTOP (≥992px): filtros siempre visibles
 ----------------------------------*/
 @media screen and (min-width: 992px) {
-  /* El panel sigue existiendo pero sin bordes ni fondo */
+  /* Mostrar siempre el panel, sin summary */
   .filters-panel {
-    display: block;       /* siempre visible */
+    display: block;
     border: none;
     background: none;
-    margin: 0;
+    margin: 0 0 1rem 0;
   }
-  /* Ocultamos el <summary> (flecha) */
   .filters-panel > summary {
     display: none;
   }
-  /* Forzar contenedor de filtros visible en flex */
   .filters-panel > #filters-container {
     display: flex !important;
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
-    padding: 0.1rem 2rem;
+    padding: 0.1rem 2rem; /* ajusta altura aquí */
   }
-  /* Ajustes de tipografía y espaciado */
+  /* Ajustes para no “gigante” */
   #filters-container label {
     font-size: 0.85rem;
   }
