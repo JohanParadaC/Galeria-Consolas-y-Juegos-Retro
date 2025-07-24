@@ -536,8 +536,10 @@ details.filters-panel > #filters-container {
   border-color: #1a9181 !important;
 }
 /* Cuando #sobre‑mi es el target (URL termina en #sobre‑mi), esconde los filtros */
-.contact-page #filterWrapper { display: none !important; }
-
+.contact-page #filterWrapper,
+.contact-page details.filters-panel {
+  display: none !important;
+}
 @media screen and (max-width: 991px) {
   /* dropdown del header (clase nav-retro) */
   .nav-retro .dropdown-menu {
