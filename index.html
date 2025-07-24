@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de consolas y juegos retros</title>
-    <base href="/Galeria-Consolas-y-Juegos-Retro/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" >
-
-
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de consolas y juegos retros</title>
+  <base href="/Galeria-Consolas-y-Juegos-Retro/">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="bg-blue-custom">
-  <!-- Fila 1: logo + nav + búsqueda -->
-  <div class="container d-flex justify-content-between align-items-center py-2">
-    <!-- Logo -->
-    <a href="#/" data-link>
-      <img src="assets/Icons/LogoRetro.png" alt="Control retro" width="115" height="115" />
-    </a>
+  <!-- HEADER -->
+  <header class="bg-blue-custom">
+    <div class="container d-flex justify-content-between align-items-center py-2">
+      <!-- Logo -->
+      <a href="#/" data-link>
+        <img src="assets/Icons/LogoRetro.png" alt="Control retro" width="115" height="115" />
+      </a>
 
-    <!-- Menú de navegación -->
-    <nav class="navbar navbar-expand-lg nav-retro">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <!-- Dispositivos -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="consolasDropdown" role="button" data-bs-toggle="dropdown">
-                Dispositivos
-              </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#/dispositivos/arcade" data-link>Arcade</a></li>
-                    <li><a class="dropdown-item" href="#/dispositivos/consolas" data-link>Consolas</a></li>
-                    <li><a class="dropdown-item" href="#/dispositivos/portatil" data-link>Portátil</a></li>
-                    <li><a class="dropdown-item" href="#/dispositivos/ordenadores" data-link>Ordenadores</a></li>
-                    <li><a class="dropdown-item" href="#/dispositivos/todo" data-link>Todo</a></li>
-                  </ul>
-            </li>
+      <!-- Menú de navegación -->
+      <nav class="navbar navbar-expand-lg nav-retro">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <!-- Dispositivos -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="consolasDropdown" role="button" data-bs-toggle="dropdown">
+                  Dispositivos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#/dispositivos/arcade" data-link>Arcade</a></li>
+                  <li><a class="dropdown-item" href="#/dispositivos/consolas" data-link>Consolas</a></li>
+                  <li><a class="dropdown-item" href="#/dispositivos/portatil" data-link>Portátil</a></li>
+                  <li><a class="dropdown-item" href="#/dispositivos/ordenadores" data-link>Ordenadores</a></li>
+                  <li><a class="dropdown-item" href="#/dispositivos/todo" data-link>Todo</a></li>
+                </ul>
+              </li>
 
-            <!-- Juegos -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="juegosDropdown" role="button" data-bs-toggle="dropdown">
-                Juegos
-              </a>
+              <!-- Juegos -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="juegosDropdown" role="button" data-bs-toggle="dropdown">
+                  Juegos
+                </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#/juegos/aventura" data-link>Aventura</a></li>
                   <li><a class="dropdown-item" href="#/juegos/rpg" data-link>RPG</a></li>
@@ -56,82 +54,79 @@
                   <li><a class="dropdown-item" href="#/juegos/puzzle" data-link>Puzzle</a></li>
                   <li><a class="dropdown-item" href="#/juegos/juegos" data-link>Todo</a></li>
                 </ul>
-            <!-- Historia de los juegos -->
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.fib.upc.edu/retro-informatica/historia/videojocs.html">Historia de los juegos</a>
-            </li>
+              </li>
 
-            <!-- Contactos -->
-            <li class="nav-item">
-              <a href="#/contacto" data-link class="nav-link">Contacto</a>
-            </li>
-          </ul>
+              <!-- Historia de los juegos -->
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.fib.upc.edu/retro-informatica/historia/videojocs.html">
+                  Historia de los juegos
+                </a>
+              </li>
+
+              <!-- Contacto -->
+              <li class="nav-item">
+                <a href="#/contacto" data-link class="nav-link">Contacto</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <!-- Búsqueda  -->
-      <div class="top-search">
-        <form id="header-search" class="search-form" action="#">
-          <input id="filter-search"
-                 type="text"
-                 class="form-control"
-                 name="search"
-                 placeholder="Buscar…">
-          <button type="submit" class="search-submit" title="Search">🔍</button>
-        </form>
-      </div>
-    </nav>
+        <!-- Búsqueda -->
+        <div class="top-search">
+          <form id="header-search" class="search-form" action="#">
+            <input id="filter-search" type="text" class="form-control" name="search" placeholder="Buscar…">
+            <button type="submit" class="search-submit" title="Search">🔍</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PANEL DE FILTROS (plegable solo en móvil) -->
+  <div class="container" style="padding: 0.1rem 0;">
+    <details class="filters-panel">
+      <summary>Filtros <span class="arrow"></span></summary>
+      <div id="filters-container" class="w-100"></div>
+    </details>
   </div>
 
-<!-- Fila 2: filtros dinámicos inyectados aquí, ahora plegables -->
-<div class="container" style="padding-top: 0.1rem; padding-bottom: 0.1rem;">
-  <details class="filters-panel">
-    <summary>Filtros <span class="arrow"></span></summary>
-    <div id="filters-container" class="w-100"></div>
-  </details>
-</div>
-</header>
+  <!-- SIDEBAR (solo desktop) -->
   <div class="sidebar">
+    <!-- Top Consolas-Compradas -->
+    <div class="category-box top-consolas-compradas">
+      <div class="category-title">Top de dispositivos de videojuegos más vendidos</div>
+      <ul>
+        <li><a href="#">PlayStation 2</a><br><span>160M de ventas</span></li>
+        <li><a href="#">NES/Famicom</a><br><span>62M de ventas</span></li>
+        <li><a href="#">Neo Geo MVS</a><br><span>1M de ventas</span></li>
+        <li><a href="#">Capcom CPS3</a><br><span>60.000 unidades vendidas</span></li>
+        <li><a href="#">Nintendo DS</a><br><span>154M de ventas</span></li>
+        <li><a href="#">PSP</a><br><span>80M de ventas</span></li>
+        <li><a href="#">Commodore 64</a><br><span>12–17M de ventas</span></li>
+        <li><a href="#">Amiga (línea completa)</a><br><span>4.5–5M de ventas</span></li>
+      </ul>
+    </div>
 
-         <!-- Top Consolas-Compradas -->
-     <div class="category-box top-consolas-compradas">
-           <div class="category-title">Top de dispositivos de videojuegos mas vendidos</div>
-            <ul>
-             <li><a href="#">PlayStation 2</a><br><span>160M de ventas</span></li>
-             <li><a href="#">NES/Famicom</a><br><span>62M de ventas</span></li>
+    <!-- Top Juegos-Populares -->
+    <div class="category-box top-juegos-populares">
+      <div class="category-title">Top Juegos Populares</div>
+      <ul>
+        <li><a href="#">Super Mario 64</a><br><span>NINTENDO 64</span></li>
+        <li><a href="#">The Legend of Zelda: Ocarina of Time</a><br><span>NINTENDO 64</span></li>
+        <li><a href="#">Super Mario World</a><br><span>SUPER NINTENDO</span></li>
+        <li><a href="#">God Of War</a><br><span>PLAYSTATION 2</span></li>
+        <li><a href="#">Need for Speed Underground</a><br><span>PLAYSTATION 2</span></li>
+        <li><a href="#">Pokémon Rojo-Fuego</a><br><span>GAMEBOY ADVANCE</span></li>
+        <li><a href="#">Halo CE</a><br><span>XBOX</span></li>
+        <li><a href="#">Resident Evil 3</a><br><span>PLAYSTATION</span></li>
+        <li><a href="#">Silent Hill 3</a><br><span>PLAYSTATION 2</span></li>
+        <li><a href="#">Donkey Kong Country</a><br><span>SUPER NINTENDO</span></li>
+        <li><a href="#">Super Metroid</a><br><span>SUPER NINTENDO</span></li>
+      </ul>
+    </div>
+  </div>
 
-             <li><a href="#">Neo Geo MVS </a><br><span>1M de ventas</span></li>
-             <li><a href="#">Capcom Play System 3-CPS3</a><br><span>60.000 unidades vendidas</span></li>
-
-             <li><a href="#">Nintendo DS</a><br><span>154M de ventas</span></li>
-             <li><a href="#">PSP</a><br><span>80M de ventas</span></li>
-
-             <li><a href="#">Commodore 64	</a><br><span>12~17M de ventas</span></li>
-             <li><a href="#">Amiga (línea completa)</a><br><span>4.5~5M de ventas</span></li>
-
-             </ul>
-     </div>
-  
-         <!-- Top Juegos-Populares -->
-
-     <div class="category-box top-juegos-populares">
-        <div class="category-title"> Top Juegos Populares</div>
-         <ul>
-            <li><a href="#">Super Mario 64</a> <br><span>NINTENDO 64</span></li>
-            <li><a href="#">The Legend of Zelda: Ocarina of Time</a> <br><span>NINTENDO 64</span></li>
-            <li><a href="#">Super Mario World</a> <br><span>SUPER NINTENDO</span></li>
-            <li><a href="#">God Of War</a> <br><span>PLAYSTATION 2</span></li>
-            <li><a href="#">NEED FOR SPEED UNDERGROUND</a> <br><span>PLAYSTATION 2</span></li>
-            <li><a href="#">Pokemon Rojo-Fuego</a> <br><span>NINTENDO GAMEBOY ADVANCE</span></li>
-            <li><a href="#">Halo CE</a> <br><span>XBOX</span></li>
-            <li><a href="#">Resident Evil 3</a> <br><span>PLAYSTATION</span></li>
-            <li><a href="#">Silent Hill 3</a> <br><span>PLAYSTATION 2</span></li>
-            <li><a href="#">Donkey Kong Country</a> <br><span>SUPER NINTENDO</span></li>
-            <li><a href="#">Super Metroid</a> <br><span>SUPER NINTENDO</span></li>
-        </ul>
-       </div>
-     </div>
-
+  <!-- CONTENIDO PRINCIPAL DESKTOP -->
   <main>
     <div id="main-content">
 
@@ -305,37 +300,39 @@
     </div>
   </section>
   </div>
-  <div id="contenedor-vista" class="py-4 d-none">
-    <div id="cargando" class="text-white text-center">
-      <p>Cargando contenido...</p>
+      <!-- Contenedor dinámico de vistas -->
+      <div id="contenedor-vista" class="py-4 d-none">
+        <div id="cargando" class="text-white text-center">
+          <p>Cargando contenido...</p>
+        </div>
+      </div>
     </div>
-  </div>
-
   </main>
+
+  <!-- FOOTER -->
   <footer class="bg-dark text-white text-center py-3">
     <small>&copy; 2025 Galería de Juegos Retros</small>
   </footer>
 
-<!-- Modal de detalle -->
-<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-md">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle"></h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <img id="modalImg" src="" alt="" class="img-fluid mb-3"/>
-        <p id="modalDesc"></p>
-        <!-- Metadatos combinados o separados -->
-        <p id="modalMeta" class="small text-white"></p>
-        <!-- placeholder para el autor -->
-        <p id="modalAuthor" class="small text-white"></p>
+  <!-- MODAL -->
+  <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modalImg" src="" alt="" class="img-fluid mb-3"/>
+          <p id="modalDesc"></p>
+          <p id="modalMeta" class="small text-white"></p>
+          <p id="modalAuthor" class="small text-white"></p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/script.js"></script>
   <script src="scripts/router.js"></script>

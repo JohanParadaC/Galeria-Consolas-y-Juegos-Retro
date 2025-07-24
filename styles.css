@@ -291,27 +291,76 @@ footer {
 }
 
 /*----------------------------------
-  11) RESPONSIVE - MENÚ + FILTROS COMPACTOS
+  11) RESPONSIVE + PANEL PLEGABLE SOLO EN MÓVIL
 ----------------------------------*/
+
+/* Por defecto (desktop) ocultamos el panel plegable */
+.filters-panel {
+  display: none;
+}
+
+/* En pantallas <= 992px: mostramos el panel y el resto de ajustes móviles */
 @media screen and (max-width: 992px) {
-  /* 1) Ocultar la sidebar */
+
+  /* Mostrar el panel plegable aquí */
+  .filters-panel {
+    display: block;
+    margin: 1rem 0;
+    border: 1px solid #20b2aa;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #003366;
+  }
+
+  .filters-panel > summary {
+    list-style: none;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    position: relative;
+  }
+  .filters-panel > summary::-webkit-details-marker {
+    display: none;
+  }
+  .filters-panel > summary .arrow {
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform-origin: center;
+    margin-top: -4px;
+  }
+  .filters-panel[open] > summary .arrow {
+    transform: rotate(-135deg);
+  }
+  .filters-panel > #filters-container {
+    display: none;
+    padding: 1rem;
+  }
+  .filters-panel[open] > #filters-container {
+    display: block;
+  }
+
+  /* Ocultar sidebar en móvil */
   .sidebar {
     display: none;
   }
 
-  /* 2) Contenido principal y vistas ocupan todo el ancho */
+  /* Main y vistas ancho completo */
   #main-content,
   #contenedor-vista {
     margin-left: 0;
     padding: 1rem;
   }
 
-  /* 3) Fondo del navbar */
-  .nav-retro {
-    background-color: #003366;
-  }
-
-  /* 4) Menú vertical completo */
+  /* Navbar vertical */
+  .nav-retro { background-color: #003366; }
   .navbar-nav {
     display: flex;
     flex-direction: column;
@@ -329,8 +378,6 @@ footer {
   .nav-retro .nav-link:last-child {
     border-bottom: none;
   }
-
-  /* 5) Botón hamburguesa */
   .navbar-toggler {
     background-color: #20b2aa !important;
     border: none !important;
@@ -339,7 +386,7 @@ footer {
     filter: invert(1);
   }
 
-  /* 6) Dropdown legible */
+  /* Dropdown legible */
   .dropdown-menu {
     background-color: #fff !important;
     color: #003366 !important;
@@ -364,14 +411,7 @@ footer {
     width: 100%;
   }
 
-  /* 7) Filtros más compactos */
-  .filters-panel > summary {
-    padding: 0.5rem;
-    font-size: 0.8rem;
-  }
-  .filters-panel[open] > #filters-container {
-    padding: 0.5rem;
-  }
+  /* Filtros compactos dentro del panel */
   #filters-container {
     display: flex;
     flex-wrap: wrap;
