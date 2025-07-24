@@ -439,7 +439,46 @@ footer {
   }
 }
 
-/* 12) SECCIÓN “SOBRE NOSOTROS”
+/*----------------------------------
+  12) DESKTOP: mostrar filtros siempre, pero compactos
+----------------------------------*/
+@media screen and (min-width: 992px) {
+  /* El panel sigue existiendo pero sin bordes ni fondo */
+  .filters-panel {
+    display: block;       /* siempre visible */
+    border: none;
+    background: none;
+    margin: 0;
+  }
+  /* Ocultamos el <summary> (flecha) */
+  .filters-panel > summary {
+    display: none;
+  }
+  /* Forzar contenedor de filtros visible en flex */
+  .filters-panel > #filters-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.1rem 2rem;
+  }
+  /* Ajustes de tipografía y espaciado */
+  #filters-container label {
+    font-size: 0.85rem;
+  }
+  #filters-container select {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem !important;
+  }
+  #results-count {
+    font-size: 0.85rem;
+  }
+  #clear-filters {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+/* 13) SECCIÓN “SOBRE NOSOTROS”
 
 – alinear el texto junto a la imagen */
 #contacto .about-container {
@@ -486,7 +525,7 @@ footer {
   margin: 0 0 1rem !important;
 }
 /*----------------------------------
- 13) FORMULARIO DE CONTACTO
+ 14) FORMULARIO DE CONTACTO
 ----------------------------------*/
 #contactForm {
   margin: 2rem auto 0;
