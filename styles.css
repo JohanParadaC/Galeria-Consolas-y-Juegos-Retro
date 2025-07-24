@@ -79,7 +79,7 @@ header {
   padding: 1rem;
   font-family: 'Press Start 2P', monospace;
   position: fixed;
-  top: 175px; 
+  top: 175px;
   left: 0;
   bottom: 0;
   overflow-y: auto;
@@ -87,45 +87,7 @@ header {
   border-right: 2px solid white;
   z-index: 999;
 }
-#filters-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.1rem 2rem; 
-}
 
-/* Selects transparent con borde blanco y texto blanco */
-#filters-container select {
-    text-decoration: none;
-    color: #fff !important;
-  /* fondo transparente */
-  background-color: transparent !important;
-  /* más espacio a la derecha para que la flecha no quede pegada */
-  padding: 0.5rem 1.75rem 0.5rem 1rem !important;
-  /* reposicionar la flecha */
-  background-position: right 0.75rem center !important;
-  /* ocultar apariencia nativa */
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-}
-/* Contador de resultados en blanco */
-#filters-container select option {
-  background-color: #003366 !important;
-  color: #fff !important;
-}
-
-/* Botón Limpiar verde acorde al tema */
-#filters-container .btn-clear {
-  background-color: #20b2aa;
-  border: none;
-  color: #fff;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.85rem;
-  padding: 0.5rem 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
 /*----------------------------------
   5) CONTENIDO PRINCIPAL
 ----------------------------------*/
@@ -230,7 +192,6 @@ p {
 .profile-pic {
   max-width: 200px;
   cursor: pointer;
-  /* el margin y display los gestiona el flex más abajo */
 }
 
 /*----------------------------------
@@ -245,299 +206,15 @@ footer {
 .modal-dialog.modal-md {
   max-width: 500px;
 }
-/*----------------------------------
-  FILTROS PLEGABLES (global)
-----------------------------------*/
-.filters-panel {
-  margin: 1rem 0;
-  border: 1px solid #20b2aa;
-  border-radius: 4px;
-  overflow: hidden;
-  background-color: #003366;
-}
-.filters-panel > summary {
-  list-style: none;
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  color: #fff;
-  font-family: 'Press Start 2P', monospace;
-  position: relative;
-}
-.filters-panel > summary::-webkit-details-marker {
-  display: none;
-}
-.filters-panel > summary .arrow {
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 5px;
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform-origin: center;
-  margin-top: -4px;
-}
-.filters-panel[open] > summary .arrow {
-  transform: rotate(-135deg);
-}
-.filters-panel > #filters-container {
-  display: none;
-  padding: 1rem;
-}
-.filters-panel[open] > #filters-container {
-  display: block;
-}
 
 /*----------------------------------
-  11) FILTROS + RESPONSIVE
+ 11) FILTROS PLEGABLES (GLOBAL)
 ----------------------------------*/
-/* Por defecto (desktop): el panel está siempre visible, compacto */
-.filters-panel {
-  display: block;
-  border: none;
-  background: none;
-  margin: 0 0 1rem 0;
-
-  /* Añadido para PC: separarlo de la sidebar y ajustar ancho */
-  margin-left: 300px !important;
-  width: calc(100% - 300px) !important;
-}
-/* Ocultar la cabecera plegable en desktop */
-.filters-panel > summary {
-  display: none;
-}
-/* Contenedor de filtros en flex, wrap y padding reducido */
-.filters-panel > #filters-container {
-  display: flex !important;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.1rem 2rem;
-}
-
-/* Móvil (≤992px): panel plegable y menú compacto */
-@media screen and (max-width: 992px) {
-  /* Reset para móviles */
-  .filters-panel {
-    margin-left: 0 !important;
-    width: auto !important;
-    border: 1px solid #20b2aa;
-    border-radius: 4px;
-    overflow: hidden;
-    background-color: #003366;
-    display: block;
-  }
-  .filters-panel > summary {
-    display: block;
-    list-style: none;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    color: #fff;
-    font-family: 'Press Start 2P', monospace;
-    position: relative;
-  }
-  .filters-panel > summary::-webkit-details-marker {
-    display: none;
-  }
-  .filters-panel > summary .arrow {
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 5px;
-    transform: rotate(45deg);
-    transition: transform 0.2s ease;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform-origin: center;
-    margin-top: -4px;
-  }
-  .filters-panel[open] > summary .arrow {
-    transform: rotate(-135deg);
-  }
-  .filters-panel > #filters-container {
-    display: none;
-    padding: 1rem;
-  }
-  .filters-panel[open] > #filters-container {
-    display: block;
-  }
-
-  /* Ocultar sidebar y ajustar layout */
-  .sidebar { display: none; }
-  #main-content, #contenedor-vista {
-    margin-left: 0;
-    padding: 1rem;
-  }
-
-  /* Navbar vertical y hamburguesa contrastada */
-  .nav-retro { background-color: #003366; }
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    background-color: #003366;
-    width: 100%;
-  }
-  .nav-retro .nav-link {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    border-bottom: 1px solid #20b2aa;
-    color: #fff !important;
-    font-size: 0.85rem;
-  }
-  .nav-retro .nav-link:last-child {
-    border-bottom: none;
-  }
-  .navbar-toggler {
-    background-color: #20b2aa !important;
-    border: none !important;
-  }
-  .navbar-toggler-icon {
-    filter: invert(1);
-  }
-
-  /* Dropdown legible */
-  .dropdown-menu {
-    background-color: #fff !important;
-    color: #003366 !important;
-    border: none !important;
-  }
-  .dropdown-item {
-    color: #003366 !important;
-    padding: 0.75rem 1.5rem;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 0.7rem;
-  }
-  .dropdown-item:hover,
-  .dropdown-item:focus {
-    background-color: #20b2aa !important;
-    color: #fff !important;
-  }
-  .dropdown-menu.show {
-    position: absolute;
-    z-index: 2000;
-    top: 100%;
-    left: 0;
-    width: 100%;
-  }
-
-  /* Filtros compactos dentro del panel */
-  #filters-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  #filters-container label {
-    font-size: 0.75rem;
-    margin-right: 0.5rem;
-  }
-  #filters-container input[type="checkbox"] {
-    width: 1rem;
-    height: 1rem;
-  }
-  #filters-container select {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem !important;
-    background-position: right 0.5rem center !important;
-  }
-  #results-count {
-    font-size: 0.75rem;
-  }
-  #clear-filters {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-  }
-}
-/* 13) SECCIÓN “SOBRE NOSOTROS”
-
-– alinear el texto junto a la imagen */
-#contacto .about-container {
-
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 1rem !important;
-  line-height: 1.6 !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  gap: 1.5rem !important;
-  margin-top: 1.5rem;
-}
-
-#contacto .profile-pic {
-  flex: 0 0 200px !important;
-  max-width: 200px !important;
-  margin: 0 !important;
-}
-
-#contacto .about-text {
-  flex: 1 1 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  text-align: left !important; 
-}
-/* Asegura que la lista herede esos mismos estilos */
-#sobre-nosotros .about-text ul {
-  list-style: disc inside;
-  margin: 1rem 0;
-  padding-left: 1rem;
-}
-
-#sobre-nosotros .about-text ul li {
-  font-family: inherit !important;
-  font-size: inherit !important;
-  margin-bottom: 0.5rem;
-}
-
-#sobre-nosotros .about-text h2,
-#sobre-nosotros .about-text p {
-  color: #fff !important;
-  margin: 0 0 1rem !important;
-}
-/*----------------------------------
- 14) FORMULARIO DE CONTACTO
-----------------------------------*/
-#contactForm {
-  margin: 2rem auto 0;
-  max-width: 600px;
-}
-#contactForm label,
-#contactForm .form-label {
-  color: #fff !important;
-}
-#contactForm .form-control {
-  background-color: rgba(255,255,255,0.1) !important;
-  border: 1px solid #fff !important;
-  color: #fff !important;
-}
-#contactForm .form-control::placeholder {
-  color: #eee !important;
-}
-#contactForm .invalid-feedback {
-  color: #fdd !important;
-}
-#contactForm .btn-primary {
-  background-color: #20b2aa !important;
-  border-color: #20b2aa !important;
-}
-#contactForm .btn-primary:hover {
-  background-color: #1a9181 !important;
-  border-color: #1a9181 !important;
-}
-
-/*----------------------------------
-   FILTROS PLEGABLES (GLOBAL)
-----------------------------------*/
-/* Estilo base del panel */
 details.filters-panel {
   margin: 1rem 0;
   font-family: 'Press Start 2P', monospace;
 }
-
-/* Cabecera (summary) y flecha */
+/* Cabecera plegable */
 details.filters-panel > summary {
   list-style: none;
   cursor: pointer;
@@ -549,11 +226,9 @@ details.filters-panel > summary {
   justify-content: space-between;
   align-items: center;
 }
-/* Oculta marcador nativo */
 details.filters-panel > summary::-webkit-details-marker {
   display: none;
 }
-/* Flecha */
 details.filters-panel > summary .arrow {
   border: solid #fff;
   border-width: 0 2px 2px 0;
@@ -565,27 +240,23 @@ details.filters-panel > summary .arrow {
 details.filters-panel[open] > summary .arrow {
   transform: rotate(-135deg);
 }
-
-/* Contenedor interno */
 details.filters-panel > #filters-container {
   padding: 1rem;
 }
 
 /*----------------------------------
-   DESKTOP (≥992px): FILTROS SIEMPRE VISIBLES
+ 12) DESKTOP (≥992px): FILTROS SIEMPRE VISIBLES
 ----------------------------------*/
 @media screen and (min-width: 992px) {
-  /* Elimina el estilo de <details> */
   details.filters-panel {
     border: none;
     background: none;
-    margin: 0 0 1rem;
+    margin: 0 0 1rem 300px; /* empuja a la derecha de la sidebar */
+    width: calc(100% - 300px);
   }
-  /* Oculta la cabecera plegable */
   details.filters-panel > summary {
     display: none;
   }
-  /* Muestra siempre los filtros en flex compacto */
   details.filters-panel > #filters-container {
     display: flex !important;
     flex-wrap: wrap;
@@ -596,21 +267,20 @@ details.filters-panel > #filters-container {
 }
 
 /*----------------------------------
-   MÓVIL (≤991px): PANEL PLEGABLE
+ 13) MÓVIL (≤991px): PANEL PLEGABLE
 ----------------------------------*/
 @media screen and (max-width: 991px) {
-  /* Borde y fondo del panel */
   details.filters-panel {
     border: 1px solid #20b2aa;
     border-radius: 4px;
     background-color: #003366;
     overflow: hidden;
+    margin: 1rem 0;
+    width: auto;
   }
-  /* Muestra summary */
   details.filters-panel > summary {
     display: flex;
   }
-  /* Oculta filtros hasta abrir */
   details.filters-panel > #filters-container {
     display: none;
   }
@@ -618,5 +288,46 @@ details.filters-panel > #filters-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+  /* Ajustes de layout móvil */
+  .sidebar {
+    display: none;
+  }
+  #main-content,
+  #contenedor-vista {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #003366;
+    width: 100%;
+  }
+  .nav-retro .nav-link {
+    padding: 1rem;
+    border-bottom: 1px solid #20b2aa;
+    font-size: 0.85rem;
+  }
+  .navbar-toggler {
+    background-color: #20b2aa !important;
+    border: none !important;
+  }
+  .navbar-toggler-icon {
+    filter: invert(1);
+  }
+  .dropdown-menu {
+    background-color: #fff !important;
+    color: #003366 !important;
+    border: none !important;
+  }
+  .dropdown-item {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.7rem;
+  }
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: #20b2aa !important;
+    color: #fff !important;
   }
 }
