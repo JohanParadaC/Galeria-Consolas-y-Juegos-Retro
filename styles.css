@@ -432,3 +432,23 @@ details.filters-panel > #filters-container {
     padding: 0.25rem 2rem;
   }
 }
+
+header {
+  height: var(--header-height);
+  overflow: hidden;
+}
+
+/* 2) Forzar estilos “retro” en el dropdown (desktop y móvil) */
+.nav-retro .dropdown-menu {
+  background-color: #003366 !important;
+  border: none !important;
+}
+
+.nav-retro .dropdown-item {
+  color: #fff !important;
+}
+
+.nav-retro .dropdown-item:hover,
+.nav-retro .dropdown-item:focus {
+  background-color: #20b2aa !important;
+}
