@@ -2,7 +2,7 @@
   1) VARIABLES GLOBALES
 ----------------------------------*/
 :root {
-  --header-height: 64px; /* Ajusta al alto real de tu header */
+  --header-height: 64px; /* Alto real de tu header */
 }
 
 /*----------------------------------
@@ -16,9 +16,6 @@
 body {
   font-family: 'Press Start 2P', monospace;
   background-color: #003366;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   color: #fff;
 }
 img {
@@ -38,48 +35,48 @@ header {
   top: 0;
   z-index: 1000;
 }
-.header-wrapped {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
+
+/* Toggler */
+.navbar-toggler {
+  background-color: #20b2aa !important;  /* ← Cambiado: fondo botón hamburguesa móvil */
+  border: none !important;               /* ← Cambiado: sin borde en móvil */
 }
-.navbar {
-  background: transparent;
-  display: flex;
-  gap: 20px;
+.navbar-toggler-icon {
+  filter: invert(1);                     /* ← Cambiado: icono contrastado */
 }
-.navbar a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 16px;
-}
-.nav-retro {
-  background-color: #003366;
-  padding: 0.5rem 1rem;
-}
-.nav-retro .nav-link {
-  color: white;
-  font-size: 14px;
-  font-family: 'Press Start 2P', monospace;
-  text-transform: uppercase;
-}
-.dropdown-menu {
-  background-color: #003366;
-  color: white;
-  border: none;
+
+/* Menú colapsado en móvil */
+@media screen and (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #003366;           /* ← Añadido: fondo oscuro detrás de los links */
+    padding: 1rem 0;                     /* ← Añadido: espacio vertical */
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-link,
+  .dropdown-item {
+    color: #fff !important;              /* ← Añadido: links blancos en menú móvil */
+  }
+  .dropdown-menu {
+    background-color: #003366 !important; /* ← Añadido: fondo oscuro en submenús */
+  }
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: #20b2aa !important; /* ← Añadido: hover en submenús */
+    color: #fff !important;              /* ← Añadido: texto blanco en hover */
+  }
 }
 
 /*----------------------------------
-  4) SIDEBAR
+  4) SIDEBAR (solo desktop)
 ----------------------------------*/
 .sidebar {
   width: 300px;
   padding: 1rem;
-  font-family: 'Press Start 2P', monospace;
   position: fixed;
-  top: 175px;
+  top: var(--header-height);
   left: 0;
   bottom: 0;
   overflow-y: auto;
@@ -95,6 +92,13 @@ header {
 #contenedor-vista {
   margin-left: 300px;
   padding: 1.5rem;
+}
+/* En móvil, quitamos el margen */
+@media screen and (max-width: 991px) {
+  #main-content,
+  #contenedor-vista {
+    margin-left: 0;
+  }
 }
 
 /*----------------------------------
@@ -209,7 +213,6 @@ footer {
 
 /*----------------------------------
  11) FILTROS PLEGABLES (GLOBAL)
-  (Puedes eliminarlo si no usas <details>)
 ----------------------------------*/
 details.filters-panel {
   margin: 1rem 0;
@@ -263,6 +266,20 @@ details.filters-panel > #filters-container {
     gap: 1rem;
     padding: 0.1rem 2rem;
     background: none;
+  }
+
+  /* Forzamos que #filterWrapper esté siempre visible en desktop */
+  #filterWrapper {
+    display: block !important;           /* ← Añadido */
+    margin-left: 300px;                  /* ← Añadido */
+    width: calc(100% - 300px);           /* ← Añadido */
+  }
+  /* Forzamos el layout interno de filtros en desktop */
+  #filters-container {
+    display: flex !important;            /* ← Añadido */
+    flex-wrap: wrap !important;          /* ← Añadido */
+    gap: 1rem !important;                /* ← Añadido */
+    background: none !important;         /* ← Añadido */
   }
 }
 
@@ -343,7 +360,6 @@ details.filters-panel > #filters-container {
   background-color: #003366;
   border: 1px solid #20b2aa;
   border-radius: 4px;
-  font-family: 'Press Start 2P', monospace;
 }
 
 /* Checkbox, select y botón Limpiar */
@@ -400,14 +416,9 @@ details.filters-panel > #filters-container {
   #filterWrapper {
     margin-left: 300px;
     width: calc(100% - 300px);
-    display: block !important;            /* ← Añadido */
   }
   #filters-container {
     /* un pelín más compacto en desktop */
     padding: 0.25rem 2rem;
-    display: flex !important;             /* ← Añadido */
-    flex-wrap: wrap !important;           /* ← Añadido */
-    gap: 1rem !important;                 /* ← Añadido */
-    background: none !important;          /* ← Añadido */
   }
 }
