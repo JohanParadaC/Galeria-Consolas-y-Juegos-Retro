@@ -527,3 +527,96 @@ footer {
   background-color: #1a9181 !important;
   border-color: #1a9181 !important;
 }
+
+/*----------------------------------
+   FILTROS PLEGABLES (GLOBAL)
+----------------------------------*/
+/* Estilo base del panel */
+details.filters-panel {
+  margin: 1rem 0;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Cabecera (summary) y flecha */
+details.filters-panel > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  background: none;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Oculta marcador nativo */
+details.filters-panel > summary::-webkit-details-marker {
+  display: none;
+}
+/* Flecha */
+details.filters-panel > summary .arrow {
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  transition: transform 0.2s ease;
+  transform: rotate(45deg);
+}
+details.filters-panel[open] > summary .arrow {
+  transform: rotate(-135deg);
+}
+
+/* Contenedor interno */
+details.filters-panel > #filters-container {
+  padding: 1rem;
+}
+
+/*----------------------------------
+   DESKTOP (≥992px): FILTROS SIEMPRE VISIBLES
+----------------------------------*/
+@media screen and (min-width: 992px) {
+  /* Elimina el estilo de <details> */
+  details.filters-panel {
+    border: none;
+    background: none;
+    margin: 0 0 1rem;
+  }
+  /* Oculta la cabecera plegable */
+  details.filters-panel > summary {
+    display: none;
+  }
+  /* Muestra siempre los filtros en flex compacto */
+  details.filters-panel > #filters-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.1rem 2rem;
+    background: none;
+  }
+}
+
+/*----------------------------------
+   MÓVIL (≤991px): PANEL PLEGABLE
+----------------------------------*/
+@media screen and (max-width: 991px) {
+  /* Borde y fondo del panel */
+  details.filters-panel {
+    border: 1px solid #20b2aa;
+    border-radius: 4px;
+    background-color: #003366;
+    overflow: hidden;
+  }
+  /* Muestra summary */
+  details.filters-panel > summary {
+    display: flex;
+  }
+  /* Oculta filtros hasta abrir */
+  details.filters-panel > #filters-container {
+    display: none;
+  }
+  details.filters-panel[open] > #filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
