@@ -209,12 +209,12 @@ footer {
 
 /*----------------------------------
  11) FILTROS PLEGABLES (GLOBAL)
+  (Puedes eliminarlo si no usas <details>)
 ----------------------------------*/
 details.filters-panel {
   margin: 1rem 0;
   font-family: 'Press Start 2P', monospace;
 }
-/* Cabecera plegable */
 details.filters-panel > summary {
   list-style: none;
   cursor: pointer;
@@ -400,9 +400,14 @@ details.filters-panel > #filters-container {
   #filterWrapper {
     margin-left: 300px;
     width: calc(100% - 300px);
+    display: block !important;            /* ← Añadido */
   }
   #filters-container {
     /* un pelín más compacto en desktop */
     padding: 0.25rem 2rem;
+    display: flex !important;             /* ← Añadido */
+    flex-wrap: wrap !important;           /* ← Añadido */
+    gap: 1rem !important;                 /* ← Añadido */
+    background: none !important;          /* ← Añadido */
   }
 }
