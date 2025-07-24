@@ -237,3 +237,15 @@ function inicializarFormularioContacto() {
     }, 3000);
   });
 }
+//ocultar el menu
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nav-retro .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const collapseEl = document.querySelector('.navbar-collapse');
+      if (collapseEl.classList.contains('show')) {
+        // Usamos la API de Bootstrap para ocultar el menú
+        new bootstrap.Collapse(collapseEl).hide();
+      }
+    });
+  });
+});

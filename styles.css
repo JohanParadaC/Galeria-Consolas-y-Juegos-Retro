@@ -252,78 +252,106 @@ footer {
 @media screen and (max-width: 992px) {
   /* 1) Ocultar la sidebar para liberar espacio */
   .sidebar {
-    display: none;           /* ← añadida: ocultar menú lateral en móvil */
+    display: none;
   }
 
   /* 2) El contenido principal y vistas ocupan todo el ancho */
   #main-content,
   #contenedor-vista {
-    margin-left: 0;          /* ← sustituir tu margin-left:300px; */
-    padding: 1rem;           /* ← opcional: reducir padding si quieres */
+    margin-left: 0;
+    padding: 1rem;
   }
 
   /* 3) Fondo del contenedor de navbar */
   .nav-retro {
-    background-color: #003366; /* ← aseguramos fondo sólido detrás del menú */
+    background-color: #003366;
   }
 
   /* 4) Hacer que los enlaces del navbar se muestren en columna */
   .navbar-nav {
-    display: flex;           
-    flex-direction: column;  /* ← añadida: menú vertical */
-    background-color: #003366;/* ← añadida: fondo sólido completo */
-    width: 100%;             /* ← añadida: ocupa todo el ancho */
+    display: flex;
+    flex-direction: column;
+    background-color: #003366;
+    width: 100%;
   }
 
   /* 5) Estilo de cada enlace del navbar */
   .nav-retro .nav-link {
-    display: block;          /* ← ocupa bloque completo */
-    width: 100%;             /* ← 100% ancho para “touch” fácil */
-    padding: 1rem;           /* ← espacio interno aumentado */
-    border-bottom: 1px solid #20b2aa; /* ← línea separadora */
-    color: #fff !important;  /* ← forzamos texto blanco */
-    font-size: 0.85rem;      /* ← tamaño legible en móvil */
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #20b2aa;
+    color: #fff !important;
+    font-size: 0.85rem;
   }
   .nav-retro .nav-link:last-child {
-    border-bottom: none;     /* ← quitar borde al último ítem */
+    border-bottom: none;
   }
 
   /* 6) Botón “hamburguesa” más contrastado */
   .navbar-toggler {
-    background-color: #20b2aa !important; /* ← turquesa */
-    border: none !important;              /* ← sin borde */
+    background-color: #20b2aa !important;
+    border: none !important;
   }
   .navbar-toggler-icon {
-    filter: invert(1);       /* ← icono blanco sobre turquesa */
+    filter: invert(1);
   }
 
   /* 7) Dropdown (submenú) legible: fondo blanco + texto oscuro */
   .dropdown-menu {
-    background-color: #fff !important;    /* ← fondo blanco */
-    color: #003366 !important;            /* ← texto azul oscuro */
-    border: none !important;              /* ← sin borde extra */
+    background-color: #fff !important;
+    color: #003366 !important;
+    border: none !important;
   }
 
   /* 8) Ítems del dropdown: padding y tipografía retro */
   .dropdown-item {
-    color: #003366 !important;            /* ← texto oscuro */
-    padding: 0.75rem 1.5rem;               /* ← más “clickable” */
-    font-family: 'Press Start 2P', monospace; /* ← misma fuente */
-    font-size: 0.7rem;                     /* ← tamaño móvil */
+    color: #003366 !important;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
   }
   .dropdown-item:hover,
   .dropdown-item:focus {
-    background-color: #20b2aa !important; /* ← hover turquesa */
-    color: #fff !important;               /* ← texto blanco */
+    background-color: #20b2aa !important;
+    color: #fff !important;
   }
 
   /* 9) Forzar que el dropdown se superponga al contenido */
   .dropdown-menu.show {
     position: absolute;
-    z-index: 2000;         /* ← encima de todo */
-    top: 100%;             /* ← justo debajo del toggle */
-    left: 0;               /* ← alineado al borde izquierdo */
-    width: 100%;           /* ← ancho completo */
+    z-index: 2000;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  /* 10) Filtros más compactos en móvil */
+  #filters-container {
+    display: flex;
+    flex-wrap: wrap;       /* permitir varias líneas */
+    gap: 0.5rem;           /* reducir espacio entre elementos */
+    padding: 0.5rem 1rem;  /* opcionalmente reducir padding */
+  }
+  #filters-container label {
+    font-size: 0.75rem;    /* etiquetas más pequeñas */
+    margin-right: 0.5rem;
+  }
+  #filters-container input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+  }
+  #filters-container select.form-select {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem !important;
+    background-position: right 0.5rem center !important;
+  }
+  #results-count {
+    font-size: 0.75rem;
+  }
+  #clear-filters {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
   }
 }
 
