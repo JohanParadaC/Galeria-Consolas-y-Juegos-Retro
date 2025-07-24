@@ -1,6 +1,7 @@
 const config = {
   dispositivos: ['todo', 'arcade', 'consolas', 'portatil', 'ordenadores'],
   juegos:       ['aventura', 'rpg', 'deportes', 'plataforma', 'puzzle', 'juegos'],
+  contacto: ['contacto'],
 };
 
 const mainContent    = document.getElementById('main-content');
