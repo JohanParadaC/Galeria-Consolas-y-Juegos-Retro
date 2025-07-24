@@ -1,11 +1,11 @@
 // 1) Configuración de secciones y categorías
 const config = {
   dispositivos: ['todo', 'arcade', 'consolas', 'portatil', 'ordenadores'],
-  juegos:       ['aventura', 'rpg', 'deportes', 'plataforma', 'puzzle', 'juegos'],
+  juegos: ['aventura', 'rpg', 'deportes', 'plataforma', 'puzzle', 'juegos'],
 };
 
 // 2) Referencias a elementos del DOM
-const mainContent    = document.getElementById('main-content');
+const mainContent = document.getElementById('main-content');
 const vistaContainer = document.getElementById('contenedor-vista');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,19 +35,25 @@ function route(hash) {
     return;
   }
 
+  // Ruta especial para contacto
   if (path === 'contacto') {
     filtersContainer.classList.add('d-none');
     mainContent.classList.add('d-none');
     vistaContainer.classList.remove('d-none');
     vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
 
-    z // sin slash al inicio
+    fetch('views/contacto.html')
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.text();
       })
       .then(html => {
         vistaContainer.innerHTML = html;
+
+        // Asegurar que el script de validación se ejecute
+        const script = document.createElement('script');
+        script.src = 'scripts/script.js';
+        document.body.appendChild(script);
       })
       .catch(err => {
         console.error('Error cargando views/contacto.html:', err);
@@ -56,6 +62,7 @@ function route(hash) {
     return;
   }
 
+  // Rutas por categoría
   const partes = path.split('/').filter(Boolean);
   if (partes.length === 2) {
     const [seccion, categoria] = partes;
@@ -88,6 +95,7 @@ function route(hash) {
     return;
   }
 
+  // Si no coincide con nada
   showError(path);
 }
 
