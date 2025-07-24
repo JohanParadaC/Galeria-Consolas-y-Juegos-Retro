@@ -237,14 +237,23 @@ function inicializarFormularioContacto() {
     }, 3000);
   });
 }
-//ocultar el menu
+
+//oculta el menu cuando se selecciona una de las opciones de dispositivos o juegos
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.nav-retro .nav-link').forEach(link => {
+  // Aquí buscamos solo <a data-link>, no todos los .nav-link
+  document.querySelectorAll('a[data-link]').forEach(link => {
     link.addEventListener('click', () => {
       const collapseEl = document.querySelector('.navbar-collapse');
+      if (!collapseEl) return;
+
+      // Si el menú está abierto, lo ocultamos
       if (collapseEl.classList.contains('show')) {
-        // Usamos la API de Bootstrap para ocultar el menú
-        new bootstrap.Collapse(collapseEl).hide();
+        // Obtenemos la instancia de Bootstrap Collapse o la creamos
+        let bsCollapse = bootstrap.Collapse.getInstance(collapseEl);
+        if (!bsCollapse) {
+          bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
+        }
+        bsCollapse.hide();
       }
     });
   });
