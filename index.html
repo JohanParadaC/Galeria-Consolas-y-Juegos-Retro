@@ -81,16 +81,21 @@
       </nav>
     </div>
   </header>
-
   
-          <!-- PANEL DE FILTROS (plegable solo en móvil) -->
-  <div class="container" style="padding: 0.1rem 0;">
-    <details class="filters-panel">
-      <summary>Filtros <span class="arrow"></span></summary>
-      <div id="filters-container" class="w-100"></div>
-    </details>
+<!-- FILTROS: botón móvil + contenedor estático -->
+<div class="container mt-3">
+  <!-- Botón que solo se ve en móvil -->
+  <button class="btn btn-primary d-lg-none w-100 mb-2"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#filterWrapper">
+    Filtros
+  </button>
+  <!-- Este div se muestra siempre en desktop, y colapsa en móvil -->
+  <div id="filterWrapper" class="collapse d-lg-block">
+    <div id="filters-container" class="w-100"></div>
   </div>
-
+</div>
 
   <!-- SIDEBAR (solo desktop) -->
   <div class="sidebar">
