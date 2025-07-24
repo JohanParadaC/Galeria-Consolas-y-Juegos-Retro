@@ -291,14 +291,18 @@ footer {
 }
 
 /*----------------------------------
- 11) FILTROS + RESPONSIVE
+  11) FILTROS + RESPONSIVE
 ----------------------------------*/
-/* Por defecto (desktop): el panel está siempre visible, ligero */
+/* Por defecto (desktop): el panel está siempre visible, compacto */
 .filters-panel {
   display: block;
   border: none;
   background: none;
   margin: 0 0 1rem 0;
+
+  /* Añadido para PC: separarlo de la sidebar y ajustar ancho */
+  margin-left: 300px !important;
+  width: calc(100% - 300px) !important;
 }
 /* Ocultar la cabecera plegable en desktop */
 .filters-panel > summary {
@@ -315,14 +319,18 @@ footer {
 
 /* Móvil (≤992px): panel plegable y menú compacto */
 @media screen and (max-width: 992px) {
-  /* Panel como <details> con borde y fondo */
+  /* Reset para móviles */
   .filters-panel {
+    margin-left: 0 !important;
+    width: auto !important;
     border: 1px solid #20b2aa;
     border-radius: 4px;
     overflow: hidden;
     background-color: #003366;
+    display: block;
   }
   .filters-panel > summary {
+    display: block;
     list-style: none;
     padding: 0.75rem 1rem;
     cursor: pointer;
