@@ -245,37 +245,79 @@ footer {
 .modal-dialog.modal-md {
   max-width: 500px;
 }
+/*----------------------------------
+  FILTROS PLEGABLES (global)
+----------------------------------*/
+.filters-panel {
+  margin: 1rem 0;
+  border: 1px solid #20b2aa;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #003366;
+}
+.filters-panel > summary {
+  list-style: none;               /* quita marcador nativo */
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  position: relative;
+}
+.filters-panel > summary::-webkit-details-marker {
+  display: none;                  /* oculta marcador nativo */
+}
+.filters-panel > summary .arrow {
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform-origin: center;
+  margin-top: -4px;
+}
+.filters-panel[open] > summary .arrow {
+  transform: rotate(-135deg);     /* flecha hacia arriba al abrir */
+}
+.filters-panel > #filters-container {
+  display: none;
+  padding: 1rem;
+}
+.filters-panel[open] > #filters-container {
+  display: block;
+}
 
 /*----------------------------------
- 11) RESPONSIVE
+  11) RESPONSIVE - MENÚ + FILTROS COMPACTOS
 ----------------------------------*/
 @media screen and (max-width: 992px) {
-  /* 1) Ocultar la sidebar para liberar espacio */
+  /* 1) Ocultar la sidebar */
   .sidebar {
     display: none;
   }
 
-  /* 2) El contenido principal y vistas ocupan todo el ancho */
+  /* 2) Contenido principal y vistas ocupan todo el ancho */
   #main-content,
   #contenedor-vista {
     margin-left: 0;
     padding: 1rem;
   }
 
-  /* 3) Fondo del contenedor de navbar */
+  /* 3) Fondo del navbar */
   .nav-retro {
     background-color: #003366;
   }
 
-  /* 4) Hacer que los enlaces del navbar se muestren en columna */
+  /* 4) Menú vertical completo */
   .navbar-nav {
     display: flex;
     flex-direction: column;
     background-color: #003366;
     width: 100%;
   }
-
-  /* 5) Estilo de cada enlace del navbar */
   .nav-retro .nav-link {
     display: block;
     width: 100%;
@@ -288,7 +330,7 @@ footer {
     border-bottom: none;
   }
 
-  /* 6) Botón “hamburguesa” más contrastado */
+  /* 5) Botón hamburguesa */
   .navbar-toggler {
     background-color: #20b2aa !important;
     border: none !important;
@@ -297,14 +339,12 @@ footer {
     filter: invert(1);
   }
 
-  /* 7) Dropdown (submenú) legible: fondo blanco + texto oscuro */
+  /* 6) Dropdown legible */
   .dropdown-menu {
     background-color: #fff !important;
     color: #003366 !important;
     border: none !important;
   }
-
-  /* 8) Ítems del dropdown: padding y tipografía retro */
   .dropdown-item {
     color: #003366 !important;
     padding: 0.75rem 1.5rem;
@@ -316,8 +356,6 @@ footer {
     background-color: #20b2aa !important;
     color: #fff !important;
   }
-
-  /* 9) Forzar que el dropdown se superponga al contenido */
   .dropdown-menu.show {
     position: absolute;
     z-index: 2000;
@@ -326,22 +364,28 @@ footer {
     width: 100%;
   }
 
-  /* 10) Filtros más compactos en móvil */
+  /* 7) Filtros más compactos */
+  .filters-panel > summary {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .filters-panel[open] > #filters-container {
+    padding: 0.5rem;
+  }
   #filters-container {
     display: flex;
-    flex-wrap: wrap;       /* permitir varias líneas */
-    gap: 0.5rem;           /* reducir espacio entre elementos */
-    padding: 0.5rem 1rem;  /* opcionalmente reducir padding */
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   #filters-container label {
-    font-size: 0.75rem;    /* etiquetas más pequeñas */
+    font-size: 0.75rem;
     margin-right: 0.5rem;
   }
   #filters-container input[type="checkbox"] {
     width: 1rem;
     height: 1rem;
   }
-  #filters-container select.form-select {
+  #filters-container select {
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem !important;
     background-position: right 0.5rem center !important;
