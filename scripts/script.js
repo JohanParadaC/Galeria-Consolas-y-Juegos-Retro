@@ -21,15 +21,18 @@ const filtrosBySection = {
       <div class="col-auto">
         <select id="filter-era" class="form-select">
           <option value="">Todas las eras</option>
+          <!-- Ahora los valores coinciden con décadas reales -->
           <option value="1970">1970s</option>
           <option value="1980">1980s</option>
           <option value="1990">1990s</option>
           <option value="2000">2000s</option>
         </select>
       </div>
+      <!-- Contador de resultados -->
       <div class="col-auto">
         <span id="results-count" class="text-white"></span>
       </div>
+      <!-- Botón Limpiar -->
       <div class="col-auto">
         <button id="clear-filters" class="btn btn-secondary">Limpiar</button>
       </div>
@@ -37,6 +40,8 @@ const filtrosBySection = {
   `,
   juegos: `
     <div class="row align-items-center g-3">
+
+      <!-- Selector de plataformas (igual que antes) -->
       <div class="col-auto">
         <select id="filter-platform" class="form-select">
           <option value="">Todas las plataformas</option>
@@ -49,6 +54,8 @@ const filtrosBySection = {
           <option value="pc">PC</option>
         </select>
       </div>
+
+      <!-- Nuevo selector de décadas/eras -->
       <div class="col-auto">
         <select id="filter-era" class="form-select">
           <option value="">Todas las décadas</option>
@@ -58,12 +65,17 @@ const filtrosBySection = {
           <option value="2000">2000s</option>
         </select>
       </div>
+
+      <!-- Contador de resultados -->
       <div class="col-auto">
         <span id="results-count" class="text-white"></span>
       </div>
+
+      <!-- Botón Limpiar -->
       <div class="col-auto">
         <button id="clear-filters" class="btn btn-secondary">Limpiar</button>
       </div>
+
     </div>
   `
 };
@@ -100,13 +112,15 @@ function filterCards() {
     const title = card.querySelector('.card-title').textContent.toLowerCase();
     const meta  = card.querySelector('.card-text').textContent.toLowerCase();
     const year  = parseInt(card.getAttribute('data-year'), 10) || 0;
-    const brand = (card.dataset.brand || '').toLowerCase();
 
+    const brand = (card.dataset.brand || '').toLowerCase();    // ← NUEVO
+
+    // checks
     const okSearch   = !term   || title.includes(term);
-    const okBrand    = !selectedBrands.length || selectedBrands.includes(brand); 
+  const okBrand    = !selectedBrands.length 
+                   || selectedBrands.includes(brand); 
     const okPlatform = !platform || meta.includes(platform);
-    const okGenre    = !genres.length || genres.some(g => meta.includes(g));
-
+    const okGenre    = !genres.length    || genres.some(g => meta.includes(g));
     let okEra = true;
     if (era) {
       const decade = parseInt(era, 10);
@@ -145,6 +159,7 @@ function attachFilterListeners() {
       el.addEventListener('change', filterCards);
     }
   });
+  // Filtrado inicial
   filterCards();
 }
 
@@ -155,23 +170,26 @@ document.getElementById('header-search')
     filterCards();
   });
 
-// 7. Tarjetas clicables con modal
 document.addEventListener('DOMContentLoaded', () => {
+  // Inicializa el Modal de Bootstrap
   const bsModal = new bootstrap.Modal(document.getElementById('detailModal'));
 
+  // Escucha clics en TODO el body sobre tarjetas .clickable-card
   document.body.addEventListener('click', e => {
     const card = e.target.closest('.clickable-card');
-    if (!card) return;
+    if (!card) return;  // si no clicaste en una tarjeta, salimos
 
-    const title = card.querySelector('.card-title').textContent;
-    const imgEl = card.querySelector('img');
-    const src   = imgEl.src;
-    const alt   = imgEl.alt;
-    const desc  = card.querySelector('.card-text').textContent;
-    const year  = card.dataset.year;
+    // Extrae datos de la tarjeta
+    const title    = card.querySelector('.card-title').textContent;
+    const imgEl    = card.querySelector('img');
+    const src      = imgEl.src;
+    const alt      = imgEl.alt;
+    const desc     = card.querySelector('.card-text').textContent;
+    const year     = card.dataset.year;
+    // En Dispositivos usamos data-brand, en Juegos data-platform
     const brandOrPlatform = card.dataset.brand || card.dataset.platform || '';
-    const author = card.dataset.author;
 
+    // Rellena el Modal
     document.getElementById('modalTitle').textContent = title;
     const mImg = document.getElementById('modalImg');
     mImg.src = src;
@@ -179,30 +197,47 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('modalDesc').textContent = desc;
     document.getElementById('modalMeta').textContent =
       `Año: ${year}` +
-      (brandOrPlatform ? ` • Marca/Plataforma: ${brandOrPlatform}` : '') +
-      (author ? ` • Autor: ${author}` : '');
+      (brandOrPlatform ? ` • Marca/Plataforma: ${brandOrPlatform}` : '');
+  const author = card.dataset.author;
+  console.log('Autor leído:', author);  // <-- Debe salir en la consola
 
+  document.getElementById('modalMeta').textContent =
+    `Año: ${year}` +
+    (brandOrPlatform ? ` • Marca/Plataforma: ${brandOrPlatform}` : '') +
+    (author ? ` • Autor: ${author}` : '');
+
+    // Muestra el Modal
     bsModal.show();
   });
 });
 
-// 8. Inicializa formulario contacto cuando se cargue
-function inicializarFormularioContacto() {
+// Validación de formulario de contacto
+(() => {
+  'use strict';
   const form = document.getElementById('contactForm');
-  if (!form) return;
+  const mensajeExito = document.getElementById('mensajeExito');
 
   form.addEventListener('submit', function(event) {
-    form.classList.remove('was-validated');
+    event.preventDefault(); // Previene envío por defecto
+    form.classList.remove('was-validated'); // Limpia validación anterior
 
     if (!form.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
       form.classList.add('was-validated');
       return;
     }
 
-    event.preventDefault();
-    alert('¡Gracias por tu mensaje, ' + form.nombre.value + '!');
-    form.reset();
+    // Obtener los datos del formulario correctamente
+    const nombre = form.elements['nombre'].value;
+
+    // Mostrar mensaje de éxito con Bootstrap
+    mensajeExito.textContent = `¡Gracias por tu mensaje, ${nombre}!`;
+    mensajeExito.classList.remove('d-none');
+
+    // Limpiar el formulario después de 3 segundos
+    setTimeout(() => {
+      form.reset();
+      form.classList.remove('was-validated');
+      mensajeExito.classList.add('d-none');
+    }, 3000);
   });
-}
+})();

@@ -1,13 +1,15 @@
+// 1) Configuración de secciones y categorías
 const config = {
   dispositivos: ['todo', 'arcade', 'consolas', 'portatil', 'ordenadores'],
   juegos:       ['aventura', 'rpg', 'deportes', 'plataforma', 'puzzle', 'juegos'],
-  contacto: ['contacto'],
 };
 
+// 2) Referencias a elementos del DOM
 const mainContent    = document.getElementById('main-content');
 const vistaContainer = document.getElementById('contenedor-vista');
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Navegación con hash
   document.body.addEventListener('click', e => {
     if (e.target.matches('a[data-link]')) {
       e.preventDefault();
@@ -17,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Al cargar o cambiar la URL con #
   window.addEventListener('hashchange', () => route(location.hash));
   route(location.hash);
 });
@@ -38,16 +41,13 @@ function route(hash) {
     vistaContainer.classList.remove('d-none');
     vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
 
-    fetch('views/contacto.html')
+    z // sin slash al inicio
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.text();
       })
       .then(html => {
         vistaContainer.innerHTML = html;
-        if (typeof inicializarFormularioContacto === 'function') {
-          inicializarFormularioContacto();
-        }
       })
       .catch(err => {
         console.error('Error cargando views/contacto.html:', err);
