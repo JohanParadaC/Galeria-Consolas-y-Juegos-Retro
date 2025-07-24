@@ -26,20 +26,40 @@ document.addEventListener('DOMContentLoaded', () => {
 function route(hash) {
   const filtersContainer = document.getElementById('filters-container');
 
-  // 1) NORMALIZAR: quitar “#” y quitar barra inicial si la hubiera
-  let rawPath = hash.replace(/^#/, '');          // "/contacto" o "contacto" o ""
-  if (rawPath.startsWith('/')) {
-    rawPath = rawPath.slice(1);                  // "contacto" o ""
-  }
-  const path = rawPath || '/';                   // "/" como home
+  // 1) Normalizar la ruta: quitar el "#" y todas las barras al inicio
+  let raw = hash.replace(/^#*/, '');       // "/contacto" o "contacto" o ""
+  raw = raw.replace(/^\/+/, '');           // "contacto" o "" o "dispositivos/todo"
+  const path = raw || '/';
 
-  // HOME
+  // Home
   if (path === '/' || path === 'index.html') {
     filtersContainer.classList.add('d-none');
     mainContent.classList.remove('d-none');
     vistaContainer.classList.add('d-none');
     return;
   }
+
+  // Contacto (ahora detecta "contacto" correctamente)
+  if (path === 'contacto') {
+    filtersContainer.classList.add('d-none');
+    mainContent.classList.add('d-none');
+    vistaContainer.classList.remove('d-none');
+    vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
+
+    fetch('views/contacto.html')
+      .then(r => {
+        if (!r.ok) throw new Error(r.status);
+        return r.text();
+      })
+      .then(html => {
+        vistaContainer.innerHTML = html;
+        inicializarFormularioContacto();
+      })
+      .catch(() => showError('contacto'));
+
+    return;
+  }
+
 
   // CONTACTO
   if (path === 'contacto') {
