@@ -1,4 +1,3 @@
-
 // 1. Referencias
 const filtersContainer = document.getElementById('filters-container');
 
@@ -170,7 +169,6 @@ document.getElementById('header-search')
     e.preventDefault();
     filterCards();
   });
-
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inicializa el Modal de Bootstrap

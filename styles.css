@@ -74,7 +74,7 @@ header {
 /* Menú colapsado en móvil */
 @media screen and (max-width: 991px) {
   .navbar-collapse {
-    background-color: #003366;           /* ← Cambiado: fondo original */
+    background-color: #003366;           
     padding: 1rem 0;
   }
   .navbar-nav {
@@ -83,11 +83,11 @@ header {
   }
   .nav-link,
   .dropdown-item {
-    color: #fff !important;              /* ← Añadido: texto blanco */
+    color: #fff !important;              
   }
   .dropdown-menu {
-    background-color: #003366 !important;/* ← Cambiado: fondo original */
-    color: #fff !important;              /* ← Cambiado: texto blanco */
+    background-color: #003366 !important;
+    color: #fff !important;             
     border: none !important;
   }
   .dropdown-item:hover,
@@ -97,7 +97,7 @@ header {
   }
   /* Opciones del dropdown deben ser blancas */
   .dropdown-item {
-    color: #fff !important;              /* ← Añadido */
+    color: #fff !important;              
   }
 }
 
@@ -105,7 +105,7 @@ header {
   4) SIDEBAR (solo desktop)
 ----------------------------------*/
 .sidebar {
-  width: 350px;
+  width: 330px;
   padding: 1rem;
   position: fixed;
   top: var(--header-height);
@@ -280,16 +280,17 @@ details.filters-panel > #filters-container {
   padding: 1rem;
 }
 
-/* Oculta filtros cuando el body tiene la clase .about-page o .contact-page */
-.about-page #filterWrapper,
+/* Oculta filtros cuando el body tiene la clase .about-page o .contact-page
+   — aquí incluyo #filters-container para que afecte también en mobile */
+.about-page #filters-container,
 .about-page details.filters-panel,
-.contact-page #filterWrapper,       /* [Cambiado] añadida regla para página de contacto */
+.contact-page #filters-container,      
 .contact-page details.filters-panel {
   display: none !important;
 }
 
 /*----------------------------------
- 12) DESKTOP (≥992px): FILTROS SIEMPRE VISIBLES
+ 12) DESKTOP (≥992px): FILTROS 
 ----------------------------------*/
 @media screen and (min-width: 992px) {
   details.filters-panel {
@@ -302,7 +303,7 @@ details.filters-panel > #filters-container {
     display: none;
   }
   /* Forzamos el layout interno solo dentro de details.filters-panel */
-  details.filters-panel > #filters-container {  /* [Cambiado] selector más específico */
+  details.filters-panel > #filters-container {
     display: flex !important;
     flex-wrap: wrap;
     gap: 1rem;
@@ -316,7 +317,6 @@ details.filters-panel > #filters-container {
     width: calc(100% - 300px);
   }
 }
-
 /*----------------------------------
  13) MÓVIL (≤991px): PANEL PLEGABLE
 ----------------------------------*/
@@ -383,8 +383,9 @@ details.filters-panel > #filters-container {
   }
 }
 
-/*----------------------------------
-  FILTROS (BASE)
+
+/*---------------------------------- 
+   FILTROS (BASE)
 ----------------------------------*/
 #filters-container {
   display: flex;
@@ -445,20 +446,26 @@ details.filters-panel > #filters-container {
 /*----------------------------------
   RESPONSIVE: DESKTOP ADJUST
 ----------------------------------*/
-@media screen and (min-width: 992px) {
-  /* Empuja junto a la sidebar fija de 300px */
-  #filterWrapper {
-    margin-left: 300px;
-    width: calc(100% - 300px);
+@media screen and (max-width: 991px) {
+  /* Forzar columna y centrar todo en móvil */
+  #contacto .about-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
   }
-  #filters-container {
-    /* un pelín más compacto en desktop */
-    padding: 0.25rem 2rem;
+
+  /* Separación abajo de la imagen */
+  #contacto .profile-pic {
+    margin: 0 0 1rem !important;
+  }
+
+  /* Que el texto ocupe todo el ancho disponible */
+  #contacto .about-text {
+    width: 100% !important;
   }
 }
 
-
-/* 12) SECCIÓN “SOBRE NOSOTROS” – alinear el texto junto a la imagen */
+/* 12) SECCIÓN “CONTACTO” – alinear el texto junto a la imagen */
 #contacto .about-container {
 
   font-family: 'Orbitron', sans-serif !important;
@@ -532,9 +539,9 @@ details.filters-panel > #filters-container {
   background-color: #1a9181 !important;
   border-color: #1a9181 !important;
 }
-/* Cuando #sobre‑mi es el target (URL termina en #sobre‑mi), esconde los filtros */
-.contact-page #filterWrapper,
-.contact-page details.filters-panel {
+/* esconde los filtros */
+.contact-page details.filters-panel,
+.contact-page #filters-container {
   display: none !important;
 }
 @media screen and (max-width: 991px) {
