@@ -281,10 +281,22 @@ details.filters-panel > #filters-container {
 }
 
 /*---------------------------------- 
- 12) DESKTOP (≥992px): FILTROS 
+ 12) DESKTOP (≥992px): PANEL DE FILTROS
 ----------------------------------*/
 @media screen and (min-width: 992px) {
+  /* 12.1) Forzar visibilidad completa del bloque de filtros */
+  #filters-panel {
+    display: block !important;
+  }
 
+  /* 12.2) Bootstrap collapse override (si lo necesitas) */
+  #filterWrapper {
+    display: block !important;
+    margin-left: 300px;               /* ajústalo si cambias el sidebar */
+    width: calc(100% - 300px);        /* idem */
+  }
+
+  /* 12.3) Si usas <details class="filters-panel">, mantenlo así: */
   details.filters-panel {
     border: none;
     background: none;
@@ -300,34 +312,31 @@ details.filters-panel > #filters-container {
     gap: 1rem;
     background: none;
   }
-
-  /* El collapse de Bootstrap para desktop */
-  #filterWrapper {
-    display: block !important;
-    margin-left: 300px;
-    width: calc(100% - 300px);
-  }
 }
 
 /*---------------------------------- 
- 13) MÓVIL (≤991px): PANEL PLEGABLE
+ 13) MOBILE (≤991px): ocultar/mostrar con has‑filters
 ----------------------------------*/
-
 @media screen and (max-width: 991px) {
-  /* 1) Oculto el contenedor entero de filtros (botón + collapse + contenido) */
+  /* 13.1) Oculto TODO el bloque (botón + collapse + filtros) */
   #filters-panel {
     display: none !important;
   }
 
-  /* 2) Solo lo muestro si el <body> tiene la clase has‑filters */
+  /* 13.2) Solo lo muestro si <body> tiene la clase exacta “has-filters” */
   body.has-filters #filters-panel {
-    display: block !important;
+    display: block !important;  /* si prefieres flex, cámbialo aquí */
   }
 
-  /* Aquí sí van tus ajustes generales de layout móvil (sidebar, navbar, etc.) */
-  .sidebar { display: none; }
+  /* 13.3) Ajustes generales de layout móvil (sidebar, márgenes, navbar…) */
+  .sidebar {
+    display: none;
+  }
   #main-content,
-  #contenedor-vista { margin-left: 0; padding: 1rem; }
+  #contenedor-vista {
+    margin-left: 0;
+    padding: 1rem;
+  }
   .navbar-nav {
     display: flex;
     flex-direction: column;
@@ -374,10 +383,10 @@ details.filters-panel > #filters-container {
   border: 1px solid #20b2aa;
   border-radius: 4px;
 }
-/* … resto de estilos de filtros … */
+/* … aquí vienen tus estilos de inputs, selects, etc. … */
 
-/*----------------------------------
-  RESPONSIVE: MOBILE ADJUST
+/*---------------------------------- 
+  RESPONSIVE: DETALLES INTERNOS (móvil)
 ----------------------------------*/
 @media screen and (max-width: 991px) {
   #filters-container {
@@ -392,8 +401,8 @@ details.filters-panel > #filters-container {
   }
 }
 
-/*----------------------------------
-  RESPONSIVE: DESKTOP ADJUST (Contacto)
+/*---------------------------------- 
+  RESPONSIVE: CONTACTO (móvil)
 ----------------------------------*/
 @media screen and (max-width: 991px) {
   #contacto .about-container {
