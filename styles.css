@@ -244,6 +244,7 @@ footer {
   max-width: 500px;
 }
 
+
 /*----------------------------------
  11) FILTROS PLEGABLES (GLOBAL)
 ----------------------------------*/
@@ -284,19 +285,19 @@ details.filters-panel > #filters-container {
  12) DESKTOP (≥992px): PANEL DE FILTROS
 ----------------------------------*/
 @media screen and (min-width: 992px) {
-  /* 12.1) Forzar visibilidad completa del bloque de filtros */
+  /* 12.1) Forzar visibilidad del bloque completo */
   #filters-panel {
     display: block !important;
   }
 
-  /* 12.2) Bootstrap collapse override (si lo necesitas) */
+  /* 12.2) Override del collapse de Bootstrap */
   #filterWrapper {
     display: block !important;
-    margin-left: 300px;               /* ajústalo si cambias el sidebar */
-    width: calc(100% - 300px);        /* idem */
+    margin-left: 300px;
+    width: calc(100% - 300px);
   }
 
-  /* 12.3) Si usas <details class="filters-panel">, mantenlo así: */
+  /* 12.3) Mantener <details> oculto en desktop */
   details.filters-panel {
     border: none;
     background: none;
@@ -323,12 +324,12 @@ details.filters-panel > #filters-container {
     display: none !important;
   }
 
-  /* 13.2) Solo lo muestro si <body> tiene la clase exacta “has-filters” */
+  /* 13.2) Solo lo muestro si <body> tiene la clase has-filters */
   body.has-filters #filters-panel {
-    display: block !important;  /* si prefieres flex, cámbialo aquí */
+    display: block !important;
   }
 
-  /* 13.3) Ajustes generales de layout móvil (sidebar, márgenes, navbar…) */
+  /* 13.3) Ajustes generales de layout móvil */
   .sidebar {
     display: none;
   }
@@ -383,9 +384,36 @@ details.filters-panel > #filters-container {
   border: 1px solid #20b2aa;
   border-radius: 4px;
 }
-/* … aquí vienen tus estilos de inputs, selects, etc. … */
+#filters-container label {
+  font-size: 0.85rem;
+  color: #fff;
+}
+#filters-container input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+}
+#filters-container select.form-select {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#filters-container select.form-select option {
+  background: #003366;
+  color: #fff;
+}
+#filters-container .btn-clear {
+  background: #20b2aa;
+  border: none;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
 
-/*---------------------------------- 
+/*----------------------------------
   RESPONSIVE: DETALLES INTERNOS (móvil)
 ----------------------------------*/
 @media screen and (max-width: 991px) {
@@ -401,7 +429,7 @@ details.filters-panel > #filters-container {
   }
 }
 
-/*---------------------------------- 
+/*----------------------------------
   RESPONSIVE: CONTACTO (móvil)
 ----------------------------------*/
 @media screen and (max-width: 991px) {
@@ -417,6 +445,48 @@ details.filters-panel > #filters-container {
     width: 100% !important;
   }
 }
+
+/*----------------------------------
+ 12) SECCIÓN “CONTACTO” – alinear el texto junto a la imagen
+----------------------------------*/
+#contacto .about-container {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 1.5rem !important;
+  margin-top: 1.5rem;
+}
+#contacto .profile-pic {
+  flex: 0 0 200px !important;
+  max-width: 200px !important;
+  margin: 0 !important;
+}
+#contacto .about-text {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  text-align: left !important; 
+}
+#contacto .about-text ul {
+  list-style: disc inside;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+#contacto .about-text ul li {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  margin-bottom: 0.5rem;
+}
+#contacto .about-text h2,
+#contacto .about-text p {
+  color: #fff !important;
+  margin: 0 0 1rem !important;
+}
+
 /*----------------------------------
  13) FORMULARIO DE CONTACTO
 ----------------------------------*/
@@ -448,21 +518,12 @@ details.filters-panel > #filters-container {
   border-color: #1a9181 !important;
 }
 
+/*---------------------------------- 
+  MOBILE: dropdown del header (nav-retro)
+----------------------------------*/
 @media screen and (max-width: 991px) {
-  /* dropdown del header (clase nav-retro) */
   .nav-retro .dropdown-menu {
     background-color: #003366 !important;
     color: #fff !important;
   }
-}
-body.home-page details.filters-panel,
-body.home-page #filters-container,
-body.home-page #filterWrapper,
-body.about-page details.filters-panel,
-body.about-page #filters-container,
-body.about-page #filterWrapper,   
-body.contact-page details.filters-panel,
-body.contact-page #filters-container,
-body.contact-page #filterWrapper {
-  display: none !important;
 }
