@@ -104,19 +104,19 @@ header {
 /*----------------------------------
   4) SIDEBAR (solo desktop)
 ----------------------------------*/
+/* SIDEBAR */
 .sidebar {
+  width: 300px;
+  padding: 1rem;
   position: fixed;
-  top: var(--header-height);   /* arranca justo bajo el header */
+  top: 140px; /* Ajusta si el navbar es más alto o más bajo */
   left: 0;
   bottom: 0;
-  width: 330px;
-  padding: 1rem;
   overflow-y: auto;
+  z-index: 999;
   background-color: #003366;
   border-right: 2px solid white;
-  z-index: 900;                /* por debajo del header */
 }
-
 /*----------------------------------
   5) CONTENIDO PRINCIPAL
 ----------------------------------*/
