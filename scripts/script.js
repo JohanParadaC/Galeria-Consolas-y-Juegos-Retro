@@ -13,6 +13,7 @@ const filtrosBySection = {
       <!-- Selector de marcas (dropdown) -->
       <div class="col-auto">
       <select id="filter-brand" class="form-select">
+        <option value="">Marcas</option>
         <option value="acorn">Acorn</option>
         <option value="apple">Apple</option>
         <option value="amstrad">Amstrad</option>
