@@ -105,7 +105,7 @@ header {
   4) SIDEBAR (solo desktop)
 ----------------------------------*/
 .sidebar {
-  width: 300px;
+  width: 350px;
   padding: 1rem;
   position: fixed;
   top: var(--header-height);
