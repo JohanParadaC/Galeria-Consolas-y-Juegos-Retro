@@ -556,7 +556,7 @@ body.home-page #filters-container,
 body.home-page #filterWrapper,
 body.about-page details.filters-panel,
 body.about-page #filters-container,
-body.about-page #filterWrapper,   /* si also quieres ocultar en about */
+body.about-page #filterWrapper,   
 body.contact-page details.filters-panel,
 body.contact-page #filters-container,
 body.contact-page #filterWrapper {
