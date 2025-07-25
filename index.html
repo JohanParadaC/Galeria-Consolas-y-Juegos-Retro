@@ -82,15 +82,16 @@
     </div>
   </header>
 
-<!-- FILTROS: botón móvil + contenedor estático -->
-<div class="container mt-3">
+<!-- --- FILTROS: botón móvil + contenedor estático --- -->
+<div id="filters-panel" class="container mt-3"> 
   <!-- Botón que solo se ve en móvil -->
-  <button class="btn btn-primary d-lg-none w-100 mb-2"
+  <button id="filter-toggle-btn"                       
+          class="btn btn-primary d-lg-none w-100 mb-2"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#filterWrapper">
-    Filtros
   </button>
+
   <!-- Este div se muestra siempre en desktop, y colapsa en móvil -->
   <div id="filterWrapper" class="collapse d-lg-block">
     <div id="filters-container" class="w-100"></div>

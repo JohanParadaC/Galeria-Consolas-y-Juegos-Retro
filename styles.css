@@ -309,34 +309,8 @@ details.filters-panel > #filters-container {
   }
 }
 /*---------------------------------- 
- 13) MÓVIL (≤991px): PANEL PLEGABLE
+  13) MÓVIL (≤991px): PANEL PLEGABLE
 ----------------------------------*/
-@media screen and (max-width: 991px) {
-  /* PANEL PLEGABLE */
-  details.filters-panel {
-    border: 1px solid #20b2aa;
-    border-radius: 4px;
-    background-color: #003366;
-    overflow: hidden;
-    margin: 1rem 0;
-    width: auto;
-  }
-  details.filters-panel > summary {
-    display: flex;
-  }
-  details.filters-panel > #filters-container {
-    display: none;
-  }
-  details.filters-panel[open] > #filters-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  body.home-page details.filters-panel,
-  body.home-page #filters-container,
-  body.home-page #filterWrapper {
-  display: none !important;
-  }
 
   /* OCULTAR EN “about” Y “contact” */
   body.about-page details.filters-panel,
@@ -346,62 +320,23 @@ details.filters-panel > #filters-container {
     display: none !important;
   }
 
-  /* Ajustes de layout móvil */
-  .sidebar {
-    display: none;
-  }
+  /* Ajustes de layout móvil… */
+  .sidebar { display: none; }
   #main-content,
-  #contenedor-vista {
-    margin-left: 0;
-    padding: 1rem;
-  }
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    background-color: #003366;
-    width: 100%;
-  }
-  .nav-retro .nav-link {
-    padding: 1rem;
-    border-bottom: 1px solid #20b2aa;
-    font-size: 0.85rem;
-  }
-  .navbar-toggler {
-    background-color: #20b2aa !important;
-    border: none !important;
-  }
-  .navbar-toggler-icon {
-    filter: invert(1);
-  }
-  .dropdown-menu {
-    background-color: #003366 !important;
-    color: #003366 !important;
-    border: none !important;
-  }
-  .dropdown-item {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.7rem;
-  }
-  .dropdown-item:hover,
-  .dropdown-item:focus {
-    background-color: #20b2aa !important;
-    color: #fff !important;
-  }
-}
-  details.filters-panel,
-  #filters-container,
-  #filterWrapper {
+  #contenedor-vista { margin-left: 0; padding: 1rem; }
+
+/* === NUEVO BLOQUE para móvil: ocultar todo salvo en rutas con filtros === */
+@media screen and (max-width: 991px) {
+  /* 1) Oculto TODO el panel (botón + collapse + filtros) */
+  #filters-panel {
     display: none !important;
   }
 
-  /* 2) Solo muestro cuando body tenga la clase has-filters */
-  body.has-filters details.filters-panel,
-  body.has-filters #filters-container,
-  body.has-filters #filterWrapper {
-    display: flex !important;  /* o block, según como lo necesites */
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  /* 2) Solo muestro el panel si body tiene la clase has‑filters */
+  body.has-filters #filters-panel {
+    display: block !important;  /* o flex si lo necesitas */
   }
+}
 
 /*---------------------------------- 
    FILTROS (BASE)
@@ -483,7 +418,6 @@ details.filters-panel > #filters-container {
     width: 100% !important;
   }
 }
-
 /* 12) SECCIÓN “CONTACTO” – alinear el texto junto a la imagen */
 #contacto .about-container {
 

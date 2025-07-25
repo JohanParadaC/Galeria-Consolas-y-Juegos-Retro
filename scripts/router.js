@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function route(hash) {
-  // >>> agregado: cada vez que cambio de ruta, elimino la clase que activa los filtros en móvil
   document.body.classList.remove('has-filters');
 
   const filtersContainer = document.getElementById('filters-container');
@@ -48,7 +47,7 @@ function route(hash) {
     mainContent.classList.add('d-none');
     vistaContainer.classList.remove('d-none');
     vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
-
+ 
     fetch('views/contacto.html')
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -75,13 +74,6 @@ function route(hash) {
     return;
   }
 
-  /* 
-  — eliminado: bloque duplicado de contacto 
-  if (path === 'contacto') {
-    … 
-  }
-  */
-
   // CATEGORÍAS (dispositivos/juegos)
   const partes = path.split('/').filter(Boolean);
   if (partes.length === 2) {
@@ -89,8 +81,6 @@ function route(hash) {
     if (!config[seccion] || !config[seccion].includes(categoria)) {
       return showError(path);
     }
-
-    // >>> agregado: activo la clase que mostrará filtros en móvil
     document.body.classList.add('has-filters');
 
     renderFilters(seccion);
