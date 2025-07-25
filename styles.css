@@ -280,20 +280,20 @@ details.filters-panel > #filters-container {
   padding: 1rem;
 }
 
-/*----------------------------------
+/*---------------------------------- 
  12) DESKTOP (≥992px): FILTROS 
 ----------------------------------*/
 @media screen and (min-width: 992px) {
+
   details.filters-panel {
     border: none;
     background: none;
-    margin: 0 0 1rem 300px; /* empuja a la derecha de la sidebar */
+    margin: 0 0 1rem 300px;
     width: calc(100% - 300px);
   }
   details.filters-panel > summary {
     display: none;
   }
-  /* Forzamos el layout interno solo dentro de details.filters-panel */
   details.filters-panel > #filters-container {
     display: flex !important;
     flex-wrap: wrap;
@@ -301,40 +301,64 @@ details.filters-panel > #filters-container {
     background: none;
   }
 
-  /* Forzamos que #filterWrapper esté siempre visible en desktop */
+  /* El collapse de Bootstrap para desktop */
   #filterWrapper {
     display: block !important;
     margin-left: 300px;
     width: calc(100% - 300px);
   }
 }
+
 /*---------------------------------- 
-  13) MÓVIL (≤991px): PANEL PLEGABLE
+ 13) MÓVIL (≤991px): PANEL PLEGABLE
 ----------------------------------*/
 
-  /* OCULTAR EN “about” Y “contact” */
-  body.about-page details.filters-panel,
-  body.about-page #filters-container,
-  body.contact-page details.filters-panel,
-  body.contact-page #filters-container {
-    display: none !important;
-  }
-
-  /* Ajustes de layout móvil… */
-  .sidebar { display: none; }
-  #main-content,
-  #contenedor-vista { margin-left: 0; padding: 1rem; }
-
-/* === NUEVO BLOQUE para móvil: ocultar todo salvo en rutas con filtros === */
 @media screen and (max-width: 991px) {
-  /* 1) Oculto TODO el panel (botón + collapse + filtros) */
+  /* 1) Oculto el contenedor entero de filtros (botón + collapse + contenido) */
   #filters-panel {
     display: none !important;
   }
 
-  /* 2) Solo muestro el panel si body tiene la clase has‑filters */
+  /* 2) Solo lo muestro si el <body> tiene la clase has‑filters */
   body.has-filters #filters-panel {
-    display: block !important;  /* o flex si lo necesitas */
+    display: block !important;
+  }
+
+  /* Aquí sí van tus ajustes generales de layout móvil (sidebar, navbar, etc.) */
+  .sidebar { display: none; }
+  #main-content,
+  #contenedor-vista { margin-left: 0; padding: 1rem; }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #003366;
+    width: 100%;
+  }
+  .nav-retro .nav-link {
+    padding: 1rem;
+    border-bottom: 1px solid #20b2aa;
+    font-size: 0.85rem;
+  }
+  .navbar-toggler {
+    background-color: #20b2aa !important;
+    border: none !important;
+  }
+  .navbar-toggler-icon {
+    filter: invert(1);
+  }
+  .dropdown-menu {
+    background-color: #003366 !important;
+    color: #fff !important;
+    border: none !important;
+  }
+  .dropdown-item {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.7rem;
+  }
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: #20b2aa !important;
+    color: #fff !important;
   }
 }
 
@@ -350,36 +374,7 @@ details.filters-panel > #filters-container {
   border: 1px solid #20b2aa;
   border-radius: 4px;
 }
-
-/* Checkbox, select y botón Limpiar */
-#filters-container label {
-  font-size: 0.85rem;
-  color: #fff;
-}
-#filters-container input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-}
-#filters-container select.form-select {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 0.4rem 1rem;
-  font-size: 0.85rem;
-  -webkit-appearance: none;
-  appearance: none;
-}
-#filters-container select.form-select option {
-  background: #003366;
-  color: #fff;
-}
-#filters-container .btn-clear {
-  background: #20b2aa;
-  border: none;
-  color: #fff;
-  padding: 0.4rem 0.8rem;
-  font-size: 0.85rem;
-}
+/* … resto de estilos de filtros … */
 
 /*----------------------------------
   RESPONSIVE: MOBILE ADJUST
@@ -398,69 +393,20 @@ details.filters-panel > #filters-container {
 }
 
 /*----------------------------------
-  RESPONSIVE: DESKTOP ADJUST
+  RESPONSIVE: DESKTOP ADJUST (Contacto)
 ----------------------------------*/
 @media screen and (max-width: 991px) {
-  /* Forzar columna y centrar todo en móvil */
   #contacto .about-container {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
   }
-
-  /* Separación abajo de la imagen */
   #contacto .profile-pic {
     margin: 0 0 1rem !important;
   }
-
-  /* Que el texto ocupe todo el ancho disponible */
   #contacto .about-text {
     width: 100% !important;
   }
-}
-/* 12) SECCIÓN “CONTACTO” – alinear el texto junto a la imagen */
-#contacto .about-container {
-
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 1rem !important;
-  line-height: 1.6 !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  gap: 1.5rem !important;
-  margin-top: 1.5rem;
-}
-
-#contacto .profile-pic {
-  flex: 0 0 200px !important;
-  max-width: 200px !important;
-  margin: 0 !important;
-}
-
-#contacto .about-text {
-  flex: 1 1 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  text-align: left !important; 
-}
-/* Asegurar que la lista herede esos mismos estilos */
-#contacto .about-text ul {
-  list-style: disc inside;
-  margin: 1rem 0;
-  padding-left: 1rem;
-}
-
-#contacto .about-text ul li {
-  font-family: inherit !important;
-  font-size: inherit !important;
-  margin-bottom: 0.5rem;
-}
-
-#contacto .about-text h2,
-#contacto .about-text p {
-  color: #fff !important;
-  margin: 0 0 1rem !important;
 }
 /*----------------------------------
  13) FORMULARIO DE CONTACTO
