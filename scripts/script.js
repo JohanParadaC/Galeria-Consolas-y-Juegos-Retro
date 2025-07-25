@@ -8,20 +8,36 @@ function getCardsContainer() {
 }
 
 const filtrosBySection = {
-  dispositivos: `
-    <div class="row align-items-center g-3">
-      <!-- Marcas -->
+  dispositivos: 
+    `<div class="row align-items-center g-3">
+      <!-- Selector de marcas (dropdown) -->
       <div class="col-auto">
-        <label><input type="checkbox" value="Nintendo" class="filter-brand" /> Nintendo</label>
-        <label><input type="checkbox" value="Sega"     class="filter-brand" /> Sega</label>
-        <label><input type="checkbox" value="Sony"     class="filter-brand" /> Sony</label>
-        <label><input type="checkbox" value="Atari"    class="filter-brand" /> Atari</label>
+      <select id="filter-brand" class="form-select">
+        <option value="">Marcas</option>
+        <option value="acorn">Acorn</option>
+        <option value="apple">Apple</option>
+        <option value="amstrad">Amstrad</option>
+        <option value="atari">Atari</option>
+        <option value="bandai">Bandai</option>
+        <option value="capcom">Capcom</option>
+        <option value="commodore">Commodore</option>
+        <option value="future pinball">Future Pinball</option>
+        <option value="mame">MAME</option>
+        <option value="microsoft">Microsoft</option>
+        <option value="nec">NEC</option>
+        <option value="nintendo">Nintendo</option>
+        <option value="nokia">Nokia</option>
+        <option value="sega">Sega</option>
+        <option value="sharp">Sharp</option>
+        <option value="sinclair">Sinclair</option>
+        <option value="snk">SNK</option>
+        <option value="sony">Sony</option>
+      </select>
       </div>
       <!-- Selector de eras -->
       <div class="col-auto">
         <select id="filter-era" class="form-select">
           <option value="">Todas las eras</option>
-          <!-- Ahora los valores coinciden con décadas reales -->
           <option value="1970">1970s</option>
           <option value="1980">1980s</option>
           <option value="1990">1990s</option>
@@ -36,15 +52,14 @@ const filtrosBySection = {
       <div class="col-auto">
         <button id="clear-filters" class="btn btn-secondary">Limpiar</button>
       </div>
-    </div>
-  `,
+    </div>`,
   juegos: `
     <div class="row align-items-center g-3">
 
       <!-- Selector de plataformas (igual que antes) -->
       <div class="col-auto">
         <select id="filter-platform" class="form-select">
-          <option value="">Todas las plataformas</option>
+          <option value="">Plataformas</option>
           <option value="nintendo">Nintendo</option>
           <option value="playstation">PlayStation</option>
           <option value="sega">Sega</option>
@@ -94,33 +109,28 @@ function renderFilters(section) {
 
 // 3. Función de filtrado común
 function filterCards() {
-  const term = document.getElementById('filter-search')?.value.toLowerCase() || '';
-  const selectedBrands = Array.from(filtersContainer.querySelectorAll('.filter-brand:checked'))
-                              .map(cb => cb.value.toLowerCase());
-  const era      = filtersContainer.querySelector('#filter-era')?.value;
-  const genres   = Array.from(filtersContainer.querySelectorAll('.filter-genre:checked'))
-                         .map(cb => cb.value.toLowerCase());
+  const term   = document.getElementById('filter-search')?.value.toLowerCase() || '';
+  const brand  = filtersContainer.querySelector('#filter-brand')?.value.toLowerCase() || '';
+  const era    = filtersContainer.querySelector('#filter-era')?.value;
+  const genres = Array.from(filtersContainer.querySelectorAll('.filter-genre:checked'))
+                       .map(cb => cb.value.toLowerCase());
   const platform = filtersContainer.querySelector('#filter-platform')?.value.toLowerCase();
 
   const container = getCardsContainer();
   if (!container) return;
 
-  const allCards = Array.from(container.querySelectorAll('.card'));
-
   let visible = 0;
-  allCards.forEach(card => {
+  container.querySelectorAll('.card').forEach(card => {
     const title = card.querySelector('.card-title').textContent.toLowerCase();
     const meta  = card.querySelector('.card-text').textContent.toLowerCase();
     const year  = parseInt(card.getAttribute('data-year'), 10) || 0;
+    const cardBrand = (card.dataset.brand || '').toLowerCase();
 
-    const brand = (card.dataset.brand || '').toLowerCase();    // ← NUEVO
-
-    // checks
-    const okSearch   = !term   || title.includes(term);
-    const okBrand    = !selectedBrands.length 
-                     || selectedBrands.includes(brand); 
+    const okSearch   = !term     || title.includes(term);
+    const okBrand    = !brand    || cardBrand === brand;
     const okPlatform = !platform || meta.includes(platform);
-    const okGenre    = !genres.length    || genres.some(g => meta.includes(g));
+    const okGenre    = !genres.length || genres.some(g => meta.includes(g));
+
     let okEra = true;
     if (era) {
       const decade = parseInt(era, 10);
