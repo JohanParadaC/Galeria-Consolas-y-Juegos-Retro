@@ -551,3 +551,14 @@ details.filters-panel > #filters-container {
     color: #fff !important;
   }
 }
+body.home-page details.filters-panel,
+body.home-page #filters-container,
+body.home-page #filterWrapper,
+body.about-page details.filters-panel,
+body.about-page #filters-container,
+body.about-page #filterWrapper,   /* si also quieres ocultar en about */
+body.contact-page details.filters-panel,
+body.contact-page #filters-container,
+body.contact-page #filterWrapper {
+  display: none !important;
+}
