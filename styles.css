@@ -280,15 +280,6 @@ details.filters-panel > #filters-container {
   padding: 1rem;
 }
 
-/* Oculta filtros cuando el body tiene la clase .about-page o .contact-page
-   — aquí incluyo #filters-container para que afecte también en mobile */
-.about-page #filters-container,
-.about-page details.filters-panel,
-.contact-page #filters-container,      
-.contact-page details.filters-panel {
-  display: none !important;
-}
-
 /*----------------------------------
  12) DESKTOP (≥992px): FILTROS 
 ----------------------------------*/
@@ -317,10 +308,11 @@ details.filters-panel > #filters-container {
     width: calc(100% - 300px);
   }
 }
-/*----------------------------------
+/*---------------------------------- 
  13) MÓVIL (≤991px): PANEL PLEGABLE
 ----------------------------------*/
 @media screen and (max-width: 991px) {
+  /* PANEL PLEGABLE */
   details.filters-panel {
     border: 1px solid #20b2aa;
     border-radius: 4px;
@@ -340,6 +332,15 @@ details.filters-panel > #filters-container {
     flex-wrap: wrap;
     gap: 0.5rem;
   }
+
+  /* OCULTAR EN “about” Y “contact” */
+  body.about-page details.filters-panel,
+  body.about-page #filters-container,
+  body.contact-page details.filters-panel,
+  body.contact-page #filters-container {
+    display: none !important;
+  }
+
   /* Ajustes de layout móvil */
   .sidebar {
     display: none;
@@ -368,7 +369,7 @@ details.filters-panel > #filters-container {
     filter: invert(1);
   }
   .dropdown-menu {
-    background-color:#003366!important;
+    background-color: #003366 !important;
     color: #003366 !important;
     border: none !important;
   }
@@ -382,8 +383,6 @@ details.filters-panel > #filters-container {
     color: #fff !important;
   }
 }
-
-
 /*---------------------------------- 
    FILTROS (BASE)
 ----------------------------------*/
@@ -539,11 +538,7 @@ details.filters-panel > #filters-container {
   background-color: #1a9181 !important;
   border-color: #1a9181 !important;
 }
-/* esconde los filtros */
-.contact-page details.filters-panel,
-.contact-page #filters-container {
-  display: none !important;
-}
+
 @media screen and (max-width: 991px) {
   /* dropdown del header (clase nav-retro) */
   .nav-retro .dropdown-menu {
