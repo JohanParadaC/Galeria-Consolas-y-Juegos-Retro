@@ -332,6 +332,11 @@ details.filters-panel > #filters-container {
     flex-wrap: wrap;
     gap: 0.5rem;
   }
+  body.home-page details.filters-panel,
+  body.home-page #filters-container,
+  body.home-page #filterWrapper {
+  display: none !important;
+  }
 
   /* OCULTAR EN “about” Y “contact” */
   body.about-page details.filters-panel,
