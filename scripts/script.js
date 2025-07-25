@@ -1,3 +1,4 @@
+
 // 1. Referencias
 const filtersContainer = document.getElementById('filters-container');
 
@@ -117,8 +118,8 @@ function filterCards() {
 
     // checks
     const okSearch   = !term   || title.includes(term);
-  const okBrand    = !selectedBrands.length 
-                   || selectedBrands.includes(brand); 
+    const okBrand    = !selectedBrands.length 
+                     || selectedBrands.includes(brand); 
     const okPlatform = !platform || meta.includes(platform);
     const okGenre    = !genres.length    || genres.some(g => meta.includes(g));
     let okEra = true;
@@ -169,6 +170,7 @@ document.getElementById('header-search')
     e.preventDefault();
     filterCards();
   });
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inicializa el Modal de Bootstrap

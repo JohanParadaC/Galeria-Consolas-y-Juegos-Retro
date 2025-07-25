@@ -279,11 +279,15 @@ details.filters-panel[open] > summary .arrow {
 details.filters-panel > #filters-container {
   padding: 1rem;
 }
-/* Oculta filtros cuando el body tiene la clase .about-page */
+
+/* Oculta filtros cuando el body tiene la clase .about-page o .contact-page */
 .about-page #filterWrapper,
-.about-page details.filters-panel {
+.about-page details.filters-panel,
+.contact-page #filterWrapper,       /* [Cambiado] añadida regla para página de contacto */
+.contact-page details.filters-panel {
   display: none !important;
 }
+
 /*----------------------------------
  12) DESKTOP (≥992px): FILTROS SIEMPRE VISIBLES
 ----------------------------------*/
@@ -297,26 +301,19 @@ details.filters-panel > #filters-container {
   details.filters-panel > summary {
     display: none;
   }
-  details.filters-panel > #filters-container {
+  /* Forzamos el layout interno solo dentro de details.filters-panel */
+  details.filters-panel > #filters-container {  /* [Cambiado] selector más específico */
     display: flex !important;
     flex-wrap: wrap;
     gap: 1rem;
-    padding: 0.1rem 2rem;
     background: none;
   }
 
   /* Forzamos que #filterWrapper esté siempre visible en desktop */
   #filterWrapper {
-    display: block !important;           /* ← Añadido */
-    margin-left: 300px;                  /* ← Añadido */
-    width: calc(100% - 300px);           /* ← Añadido */
-  }
-  /* Forzamos el layout interno de filtros en desktop */
-  #filters-container {
-    display: flex !important;            /* ← Añadido */
-    flex-wrap: wrap !important;          /* ← Añadido */
-    gap: 1rem !important;                /* ← Añadido */
-    background: none !important;         /* ← Añadido */
+    display: block !important;
+    margin-left: 300px;
+    width: calc(100% - 300px);
   }
 }
 
