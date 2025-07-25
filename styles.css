@@ -105,16 +105,16 @@ header {
   4) SIDEBAR (solo desktop)
 ----------------------------------*/
 .sidebar {
-  width: 330px;
-  padding: 1rem;
   position: fixed;
-  top: var(--header-height);
+  top: var(--header-height);   /* arranca justo bajo el header */
   left: 0;
   bottom: 0;
+  width: 330px;
+  padding: 1rem;
   overflow-y: auto;
   background-color: #003366;
   border-right: 2px solid white;
-  z-index: 999;
+  z-index: 900;                /* por debajo del header */
 }
 
 /*----------------------------------
