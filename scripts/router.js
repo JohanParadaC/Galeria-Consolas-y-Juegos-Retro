@@ -24,42 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function route(hash) {
+  // >>> agregado: cada vez que cambio de ruta, elimino la clase que activa los filtros en móvil
+  document.body.classList.remove('has-filters');
+
   const filtersContainer = document.getElementById('filters-container');
 
   // 1) Normalizar la ruta: quitar el "#" y todas las barras al inicio
   let raw = hash.replace(/^#*/, '');       // "/contacto" o "contacto" o ""
-  raw = raw.replace(/^\/+/, '');           // "contacto" o "" o "dispositivos/todo"
+  raw     = raw.replace(/^\/+/, '');       // "contacto" o "" o "dispositivos/todo"
   const path = raw || '/';
 
-  // Home
+  // HOME
   if (path === '/' || path === 'index.html') {
     filtersContainer.classList.add('d-none');
     mainContent.classList.remove('d-none');
     vistaContainer.classList.add('d-none');
     return;
   }
-
-  // Contacto (ahora detecta "contacto" correctamente)
-  if (path === 'contacto') {
-    filtersContainer.classList.add('d-none');
-    mainContent.classList.add('d-none');
-    vistaContainer.classList.remove('d-none');
-    vistaContainer.innerHTML = '<p class="text-white">Cargando contenido…</p>';
-
-    fetch('views/contacto.html')
-      .then(r => {
-        if (!r.ok) throw new Error(r.status);
-        return r.text();
-      })
-      .then(html => {
-        vistaContainer.innerHTML = html;
-        inicializarFormularioContacto();
-      })
-      .catch(() => showError('contacto'));
-
-    return;
-  }
-
 
   // CONTACTO
   if (path === 'contacto') {
@@ -75,7 +56,7 @@ function route(hash) {
       })
       .then(html => {
         vistaContainer.innerHTML = html;
-        // Inicia validación y lógica del formulario que está en script.js
+        // Inicia validación y lógica del formulario
         if (typeof inicializarFormularioContacto === 'function') {
           inicializarFormularioContacto();
         } else {
@@ -94,6 +75,13 @@ function route(hash) {
     return;
   }
 
+  /* 
+  — eliminado: bloque duplicado de contacto 
+  if (path === 'contacto') {
+    … 
+  }
+  */
+
   // CATEGORÍAS (dispositivos/juegos)
   const partes = path.split('/').filter(Boolean);
   if (partes.length === 2) {
@@ -101,6 +89,10 @@ function route(hash) {
     if (!config[seccion] || !config[seccion].includes(categoria)) {
       return showError(path);
     }
+
+    // >>> agregado: activo la clase que mostrará filtros en móvil
+    document.body.classList.add('has-filters');
+
     renderFilters(seccion);
     mainContent.classList.add('d-none');
     vistaContainer.classList.remove('d-none');

@@ -388,6 +388,21 @@ details.filters-panel > #filters-container {
     color: #fff !important;
   }
 }
+  details.filters-panel,
+  #filters-container,
+  #filterWrapper {
+    display: none !important;
+  }
+
+  /* 2) Solo muestro cuando body tenga la clase has-filters */
+  body.has-filters details.filters-panel,
+  body.has-filters #filters-container,
+  body.has-filters #filterWrapper {
+    display: flex !important;  /* o block, según como lo necesites */
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
 /*---------------------------------- 
    FILTROS (BASE)
 ----------------------------------*/
