@@ -71,8 +71,6 @@ Visita la demo:  https://johanparadac.github.io/Galeria-Consolas-y-Juegos-Retro/
 
 ## 🛠️ Instalaciones y uso
 
--Clona el repositorio:
-
 git clone https://github.com/JohanParadaC/Galeria-Consolas-y-Juegos-Retro.git
 
 -Abre el archivo index.html en tu navegador o usa una extensión como Live Server en VS Code.
@@ -80,7 +78,7 @@ git clone https://github.com/JohanParadaC/Galeria-Consolas-y-Juegos-Retro.git
 -Listo! Ya puedes navegar por la galería y probar sus funcionalidades.
 ---
 
-##🤝 Cómo contribuir
+## 🤝 Cómo contribuir
 ¡Las contribuciones son bienvenidas! Para colaborar:
 
 Haz un fork del repositorio.
@@ -91,8 +89,8 @@ Haz tus cambios y commits.
 
 Abre un Pull Request con una descripción clara.
 
-👨‍💻 Autor
+## 👨‍💻 Autor
 [Johan David Parada Camargo] – Desarrollador Web
 
-📄 Licencia
+## 📄 Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
