@@ -527,3 +527,23 @@ details.filters-panel > #filters-container {
     color: #fff !important;
   }
 }
+/*----------------------------------
+ 14) CONTACTO (MÓVIL): apilar y centrar imagen y texto
+----------------------------------*/
+@media screen and (max-width: 991px) {
+  /* Apilo en columna y centro ambos */
+  #contacto .about-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  /* Centro la foto y añado separación abajo */
+  #contacto .profile-pic {
+    margin: 0 auto 1rem auto !important;
+  }
+  /* Texto ocupa todo el ancho y queda centrado */
+  #contacto .about-text {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
